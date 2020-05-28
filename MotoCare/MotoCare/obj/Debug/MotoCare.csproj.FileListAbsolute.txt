@@ -24,3 +24,5 @@ C:\Users\lucaw\Desktop\TPI\TPI_MotoCare\MotoCare\MotoCare\bin\Debug\EntityFramew
 C:\Users\lucaw\Desktop\TPI\TPI_MotoCare\MotoCare\MotoCare\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\lucaw\Desktop\TPI\TPI_MotoCare\MotoCare\MotoCare\bin\Debug\Newtonsoft.Json.xml
 C:\Users\lucaw\Desktop\TPI\TPI_MotoCare\MotoCare\MotoCare\obj\Debug\MotoCare.frmAjoutVehicule.resources
+C:\Users\lucaw\Desktop\TPI\TPI_MotoCare\MotoCare\MotoCare\obj\Debug\MotoCare.FrmModifierVehicule.resources
+C:\Users\lucaw\Desktop\TPI\TPI_MotoCare\MotoCare\MotoCare\obj\Debug\MotoCare.frmAjoutTrajet.resources

@@ -17,6 +17,7 @@ namespace MotoCare
         private string _kmInitial;
         private string _kmReel;
         private Image _photo;
+        private byte[] _photoEnBytes;
 
         //Propriétés
         public string IdVehicule { get => _idVehicule; set => _idVehicule = value; }
@@ -25,6 +26,7 @@ namespace MotoCare
         public string KmInitial { get => _kmInitial; set => _kmInitial = value; }
         public string KmReel { get => _kmReel; set => _kmReel = value; }
         public Image Photo { get => _photo; set => _photo = value; }
+        public byte[] PhotoEnBytes { get => _photoEnBytes; set => _photoEnBytes = value; }
 
         //Constructeur
         public Vehicule(string idVehicule, string nom, string description, string kmInitial, string kmReel, Image photo)
@@ -35,6 +37,16 @@ namespace MotoCare
             KmInitial = kmInitial;
             KmReel = kmReel;
             Photo = photo;
+        }
+        public Vehicule(string idVehicule, string nom, string description, string kmInitial, string kmReel, Image photo, byte[] photoEnBytes)
+        {
+            IdVehicule = idVehicule;
+            Nom = nom;
+            Description = description;
+            KmInitial = kmInitial;
+            KmReel = kmReel;
+            Photo = photo;
+            PhotoEnBytes = photoEnBytes;
         }
     }
 }

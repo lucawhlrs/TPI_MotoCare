@@ -12,6 +12,8 @@ namespace MotoCare
 {
     public partial class FrmAjoutVehicule : Form
     {
+        //A faire: un héritage avec une classe parent. A affecter aussi frmModifierVehicule
+
         BD bd = new BD();
 
         private string _nom;
@@ -47,12 +49,21 @@ namespace MotoCare
             {
                 image = Image.FromFile(ofdImage.FileName);
                 PhotoEnBytes = bd.ImageToBytesArray(image);
+
+                pcbPhoto.Image = image;
             }
         }
 
         private void btnValider_Click(object sender, EventArgs e)
         {
-            
+            if (Nom == "" || Description == "" || PhotoEnBytes == null)
+            {
+                lblErreurAjoutVehicule.Text = "Veuillez renseigner tous les champs";
+            }
+            else
+            {
+                DialogResult = DialogResult.OK;
+            }
         }
     }
 }

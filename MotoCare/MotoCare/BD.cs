@@ -26,7 +26,6 @@ namespace MotoCare
             Image returnImage = Image.FromStream(ms);
             return returnImage;
         }
-
         static byte[] GetBytes(SQLiteDataReader reader)
         {
             const int CHUNK_SIZE = 2 * 1024;
@@ -35,33 +34,43 @@ namespace MotoCare
             long fieldOffset = 0;
             using (MemoryStream stream = new MemoryStream())
             {
-                while ((bytesRead = reader.GetBytes(0, fieldOffset, buffer, 0, buffer.Length)) > 0)
+                if (reader.IsDBNull(0))
                 {
-                    stream.Write(buffer, 0, (int)bytesRead);
-                    fieldOffset += bytesRead;
+                    return null;
                 }
-                return stream.ToArray();
+                else
+                {
+                    while ((bytesRead = reader.GetBytes(0, fieldOffset, buffer, 0, buffer.Length)) > 0)
+                    {
+                        stream.Write(buffer, 0, (int)bytesRead);
+                        fieldOffset += bytesRead;
+                    }
+                    return stream.ToArray();
+                }
+                
             }
         }
-        public List<Image> GetAnnonceImageById(string idAnnonce)
+        public byte[] ImageToBytesArray(Image image)
         {
-            List<Image> images = new List<Image>();
+            MemoryStream ms = new MemoryStream();
+            image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+            return ms.ToArray();
+        }
+        public Image ObtenirPhotoGraceIdVehicule(string idVehicule)
+        {
+            Image photo = null;
 
-            string query = string.Format("SELECT DISTINCT" +
-               " im.image AS Image" +
-               " FROM User AS us, Annonce AS an, Vehicule AS ve, Image AS im, Marque AS ma, Model AS mo" +
-               " WHERE im.idAnnonce = '{0}';", idAnnonce);
-
+            string query = string.Format("SELECT photo FROM vehicule WHERE idVehicule = '{0}';", idVehicule);
             SQLiteCommand command = new SQLiteCommand(query, maConnexion);
             SQLiteDataReader dtReader = command.ExecuteReader();
 
             while (dtReader.Read())
             {
                 byte[] buffer = GetBytes(dtReader);
-                images.Add(ByteArrayToImage(buffer));
+                photo = ByteArrayToImage(buffer);
             }
 
-            return images;
+            return photo;
         }
         public List<Vehicule> LireVehicules()
         {
@@ -72,43 +81,67 @@ namespace MotoCare
 
             while (dtReader.Read())
             {
-                //byte[] buffer = GetBytes(dtReader);
-
                 vehicules.Add(new Vehicule(
                     dtReader["idVehicule"].ToString(),
                     dtReader["nom"].ToString(),
                     dtReader["description"].ToString(),
                     dtReader["kmInitial"].ToString(),
                     dtReader["kmReel"].ToString(),
-                    ByteArrayToImage((byte[])GetBytes(dtReader))
+                    ObtenirPhotoGraceIdVehicule(dtReader["idVehicule"].ToString())
                     ));
             }
             return vehicules;
-        }
-        public byte[] ImageToBytesArray(Image image)
-        {
-            MemoryStream ms = new MemoryStream();
-            image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
-            return ms.ToArray();
         }
         public void CreerVehicule(string nom, string description, string kmInitial, string kmReel, byte[] photoEnByte)
         {
             string query = string.Format("INSERT INTO vehicule (nom, description, kmInitial, kmReel, photo) " +
                                             "VALUES ('{0}', '{1}', '{2}', '{3}', @photo);", nom, description, kmInitial, kmReel);
+
             SQLiteCommand sQLiteCommand = new SQLiteCommand(query, maConnexion);
             sQLiteCommand.Parameters.Add("@photo", DbType.Binary, 20).Value = photoEnByte;
             sQLiteCommand.ExecuteNonQuery();
         }
+        public void SupprimerVehicule(Vehicule vehicule)
+        {
+            string query = string.Format("DELETE FROM vehicule WHERE idVehicule = '{0}';", vehicule.IdVehicule);
+            SQLiteCommand sQLiteCommand = new SQLiteCommand(query, maConnexion);
+            sQLiteCommand.ExecuteNonQuery();
+        }
+        public void MettreAJourVehicule(string idVehicule, string nom, string description, string kmInitial, string kmReel, byte[] photoEnByte)
+        {
+            string query = string.Format("UPDATE vehicule SET nom = '{0}', description = '{1}', kmInitial = '{2}', kmReel = '{3}', photo = @photo " +
+                "WHERE idVehicule = '{4}'", nom, description, kmInitial, kmReel, idVehicule);
 
+            SQLiteCommand sQLiteCommand = new SQLiteCommand(query, maConnexion);
+            sQLiteCommand.Parameters.Add("@photo", DbType.Binary, 20).Value = photoEnByte;
+            sQLiteCommand.ExecuteNonQuery();
+        }
+        public void CreerTrajet(string idVehicule, string depart, string arrivee,string distance, string date)
+        {
+            string query = string.Format("INSERT INTO trajet (depart, arrivee, distance, date, idVehicule)" +
+                "VALUES ('{0}', '{1}', '{2}', '{3}', '{4}')", depart, arrivee, distance, date, idVehicule);
 
+            SQLiteCommand sQLiteCommand = new SQLiteCommand(query, maConnexion);
+            sQLiteCommand.ExecuteNonQuery();
+        }
+        public List<Trajet> LireTrajets(string idVehicule)
+        {
+            List<Trajet> trajets = new List<Trajet>();
+            string select = string.Format("SELECT depart, arrivee, distance, date, idVehicule FROM trajet WHERE idVehicule = '{0}';", idVehicule);
+            SQLiteCommand command = new SQLiteCommand(select, maConnexion);
+            SQLiteDataReader dtReader = command.ExecuteReader();
 
-        //public void CreateRestaurant(Restaurant restaurant)
-        //{
-        //    string query = string.Format("INSERT INTO restaurants (nom, lat, long, description, nourriture, prix, adresse, telephone) " +
-        //                                    "VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}');", restaurant.Nom.Replace("'", "''"), restaurant.Lat, restaurant.Long, restaurant.Description.Replace("'", "''"), restaurant.Nourriture, restaurant.Prix, restaurant.Adresse.Replace("'", "''"), restaurant.Telephone);
-
-        //    SQLiteCommand sQLiteCommand = new SQLiteCommand(query, maConnexion);
-        //    sQLiteCommand.ExecuteNonQuery();
-        //}
+            while (dtReader.Read())
+            {
+                trajets.Add(new Trajet(
+                    dtReader["depart"].ToString(),
+                    dtReader["arrivee"].ToString(),
+                    dtReader["distance"].ToString(),
+                    dtReader["date"].ToString(),
+                    dtReader["idVehicule"].ToString()
+                    ));
+            }
+            return trajets;
+        }
     }
 }
