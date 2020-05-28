@@ -143,5 +143,39 @@ namespace MotoCare
             }
             return trajets;
         }
+        public void SupprimerTrajet(string depart, string arrivee, string distance, string date, string idVehicule)
+        {
+            string query = string.Format("DELETE FROM trajet WHERE depart = '{0}' AND arrivee = '{1}' AND distance = '{2}' AND date = '{3}' AND idVehicule = '{4}';", depart, arrivee, distance, date, idVehicule);
+            SQLiteCommand sQLiteCommand = new SQLiteCommand(query, maConnexion);
+            sQLiteCommand.ExecuteNonQuery();
+        }
+        public void SupprimerTrajet(string idTrajet)
+        {
+            string query = string.Format("DELETE FROM trajet WHERE idTrajet = '{0}';", idTrajet);
+            SQLiteCommand sQLiteCommand = new SQLiteCommand(query, maConnexion);
+            sQLiteCommand.ExecuteNonQuery();
+        }
+        public void MettreAJourTrajet(string depart, string arrivee, string distance, string date, string idVehicule, string idTrajet)
+        {
+            string query = string.Format("UPDATE trajet SET depart = '{0}', arrivee = '{1}', distance = '{2}', date = '{3}', idVehicule = '{4}' " +
+                "WHERE idTrajet = '{5}'", depart, arrivee, distance, date, idVehicule, idTrajet);
+
+            SQLiteCommand sQLiteCommand = new SQLiteCommand(query, maConnexion);
+            sQLiteCommand.ExecuteNonQuery();
+        }
+        public string ObtenirIdTrajetAvecReste(string depart, string arrivee, string distance, string date, string idVehicule)
+        {
+            string idTrajet = string.Empty;
+
+            string select = string.Format("SELECT idTrajet FROM trajet WHERE depart = '{0}' AND arrivee = '{1}' AND distance = '{2}' AND date = '{3}' AND idVehicule = '{4}' LIMIT 1;", depart, arrivee, distance, date, idVehicule);
+            SQLiteCommand command = new SQLiteCommand(select, maConnexion);
+            SQLiteDataReader dtReader = command.ExecuteReader();
+            while (dtReader.Read())
+            {
+                idTrajet = dtReader["idTrajet"].ToString();
+            }
+
+            return idTrajet;
+        }
     }
 }

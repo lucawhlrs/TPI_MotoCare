@@ -76,6 +76,16 @@ namespace MotoCare
             }
             cbxVehicules.SelectedIndex = 0;
         }
+        public void UpdateTrajetContent()
+        {
+            bd.maConnexion.Open();
+            dtgvTrajets.Rows.Clear();
+            foreach (Trajet trajet in bd.LireTrajets(vehiculeSelectionne.IdVehicule))
+            {
+                dtgvTrajets.Rows.Add(trajet.Depart, trajet.Arrivee, trajet.Distance, trajet.Date);
+            }
+            bd.maConnexion.Close();
+        }
         private void cbxVehicules_SelectedIndexChanged(object sender, EventArgs e)
         {
             //Indique quel vehicule est sélectionné et met à jour les champs en fonction du véhicule
@@ -89,13 +99,7 @@ namespace MotoCare
                     tbxKmInitial.Text = vehicule.KmInitial;
                     tbxKmReel.Text = vehicule.KmReel;
 
-                    bd.maConnexion.Open();
-                    dtgvTrajets.Rows.Clear();
-                    foreach (Trajet trajet in bd.LireTrajets(vehiculeSelectionne.IdVehicule))
-                    {
-                        dtgvTrajets.Rows.Add(trajet.Depart, trajet.Arrivee, trajet.Distance, trajet.Date);
-                    }
-                    bd.maConnexion.Close();
+                    UpdateTrajetContent();
                 }
             }
         }
@@ -134,7 +138,6 @@ namespace MotoCare
                 UpdateVehiculesAndCbxVehicules();
             }
         }
-
         private void btnModifierVehicule_Click(object sender, EventArgs e)
         {
             FrmModifierVehicule frmModifierVehicule = new FrmModifierVehicule(vehiculeSelectionne);
@@ -146,7 +149,6 @@ namespace MotoCare
                 UpdateVehiculesAndCbxVehicules();
             }
         }
-
         private void btnAjouterTrajet_Click(object sender, EventArgs e)
         {
             FrmAjoutTrajet frmAjoutTrajet = new FrmAjoutTrajet();
@@ -155,6 +157,43 @@ namespace MotoCare
                 bd.maConnexion.Open();
                 bd.CreerTrajet(vehiculeSelectionne.IdVehicule, frmAjoutTrajet.Depart, frmAjoutTrajet.Arrivee, frmAjoutTrajet.Distance, frmAjoutTrajet.Date);
                 bd.maConnexion.Close();
+
+                UpdateTrajetContent();
+            }
+        }
+        private void dtgvTrajets_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridView data = (DataGridView)sender;
+
+            if (dtgvTrajets.Columns[e.ColumnIndex] is DataGridViewButtonColumn)
+            {
+                int ligne = dtgvTrajets.Rows[e.RowIndex].Index;
+                string depart = dtgvTrajets.Rows[ligne].Cells["colDepart"].Value.ToString();
+                string arrivee = dtgvTrajets.Rows[ligne].Cells["colArrivee"].Value.ToString();
+                string distance = dtgvTrajets.Rows[ligne].Cells["colDistance"].Value.ToString();
+                string date = dtgvTrajets.Rows[ligne].Cells["colDate"].Value.ToString();
+
+                bd.maConnexion.Open();
+                string idTrajet = bd.ObtenirIdTrajetAvecReste(depart, arrivee, distance, date, vehiculeSelectionne.IdVehicule);
+
+                if (dtgvTrajets.Columns[e.ColumnIndex].Name == "colModifier")
+                {
+                    FrmModifierTrajet frmModifierTrajet = new FrmModifierTrajet(depart, arrivee, distance, date);
+                    if (frmModifierTrajet.ShowDialog() == DialogResult.OK)
+                    {
+                        bd.MettreAJourTrajet(frmModifierTrajet.Depart, frmModifierTrajet.Arrivee, frmModifierTrajet.Distance, frmModifierTrajet.Date, vehiculeSelectionne.IdVehicule, idTrajet);
+                    }
+                }
+                else if (dtgvTrajets.Columns[e.ColumnIndex].Name == "colSupprimer")
+                {
+                    if (MessageBox.Show("Voulez-vous vraiment supprimer ce trajet ?", "Supprimer trajet", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        //bd.SupprimerTrajet(depart, arrivee, distance, date, vehiculeSelectionne.IdVehicule);
+                        bd.SupprimerTrajet(idTrajet);
+                    }
+                }
+                bd.maConnexion.Close();
+                UpdateTrajetContent();
             }
         }
     }

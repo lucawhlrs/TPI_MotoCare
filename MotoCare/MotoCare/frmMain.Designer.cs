@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -84,12 +84,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.tbxKmReel = new System.Windows.Forms.TextBox();
-            this.depart = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.arrivee = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.distance = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.modifier = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.supprimer = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.colDepart = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colArrivee = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDistance = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colModifier = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.colSupprimer = new System.Windows.Forms.DataGridViewButtonColumn();
             this.menuStrip1.SuspendLayout();
             this.tcMenu.SuspendLayout();
             this.tpTrajets.SuspendLayout();
@@ -374,17 +374,18 @@
             // 
             // dtgvTrajets
             // 
+            this.dtgvTrajets.AllowUserToAddRows = false;
             this.dtgvTrajets.AllowUserToDeleteRows = false;
             this.dtgvTrajets.AllowUserToResizeRows = false;
             this.dtgvTrajets.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dtgvTrajets.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvTrajets.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.depart,
-            this.arrivee,
-            this.distance,
-            this.date,
-            this.modifier,
-            this.supprimer});
+            this.colDepart,
+            this.colArrivee,
+            this.colDistance,
+            this.colDate,
+            this.colModifier,
+            this.colSupprimer});
             this.dtgvTrajets.Location = new System.Drawing.Point(3, 36);
             this.dtgvTrajets.Name = "dtgvTrajets";
             this.dtgvTrajets.ReadOnly = true;
@@ -392,6 +393,7 @@
             this.dtgvTrajets.RowHeadersWidth = 102;
             this.dtgvTrajets.Size = new System.Drawing.Size(920, 328);
             this.dtgvTrajets.TabIndex = 0;
+            this.dtgvTrajets.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvTrajets_CellContentClick);
             // 
             // tpCarnet
             // 
@@ -608,73 +610,73 @@
             this.tbxKmReel.Size = new System.Drawing.Size(224, 20);
             this.tbxKmReel.TabIndex = 10;
             // 
-            // depart
+            // colDepart
             // 
-            this.depart.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.depart.FillWeight = 41.69231F;
-            this.depart.HeaderText = "Départ";
-            this.depart.MinimumWidth = 12;
-            this.depart.Name = "depart";
-            this.depart.ReadOnly = true;
+            this.colDepart.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colDepart.FillWeight = 41.69231F;
+            this.colDepart.HeaderText = "Départ";
+            this.colDepart.MinimumWidth = 12;
+            this.colDepart.Name = "colDepart";
+            this.colDepart.ReadOnly = true;
             // 
-            // arrivee
+            // colArrivee
             // 
-            this.arrivee.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.arrivee.FillWeight = 41.69231F;
-            this.arrivee.HeaderText = "Arrivée";
-            this.arrivee.MinimumWidth = 12;
-            this.arrivee.Name = "arrivee";
-            this.arrivee.ReadOnly = true;
+            this.colArrivee.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colArrivee.FillWeight = 41.69231F;
+            this.colArrivee.HeaderText = "Arrivée";
+            this.colArrivee.MinimumWidth = 12;
+            this.colArrivee.Name = "colArrivee";
+            this.colArrivee.ReadOnly = true;
             // 
-            // distance
+            // colDistance
             // 
-            this.distance.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.distance.FillWeight = 41.69231F;
-            this.distance.HeaderText = "Distance(Km)";
-            this.distance.MinimumWidth = 12;
-            this.distance.Name = "distance";
-            this.distance.ReadOnly = true;
+            this.colDistance.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colDistance.FillWeight = 41.69231F;
+            this.colDistance.HeaderText = "Distance(Km)";
+            this.colDistance.MinimumWidth = 12;
+            this.colDistance.Name = "colDistance";
+            this.colDistance.ReadOnly = true;
             // 
-            // date
+            // colDate
             // 
-            this.date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle1.Format = "D";
-            dataGridViewCellStyle1.NullValue = null;
-            this.date.DefaultCellStyle = dataGridViewCellStyle1;
-            this.date.FillWeight = 41.69231F;
-            this.date.HeaderText = "Date";
-            this.date.MinimumWidth = 12;
-            this.date.Name = "date";
-            this.date.ReadOnly = true;
+            this.colDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle4.Format = "D";
+            dataGridViewCellStyle4.NullValue = null;
+            this.colDate.DefaultCellStyle = dataGridViewCellStyle4;
+            this.colDate.FillWeight = 41.69231F;
+            this.colDate.HeaderText = "Date";
+            this.colDate.MinimumWidth = 12;
+            this.colDate.Name = "colDate";
+            this.colDate.ReadOnly = true;
             // 
-            // modifier
+            // colModifier
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DodgerBlue;
-            this.modifier.DefaultCellStyle = dataGridViewCellStyle2;
-            this.modifier.FillWeight = 204.8044F;
-            this.modifier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.modifier.HeaderText = "Modifier";
-            this.modifier.MinimumWidth = 12;
-            this.modifier.Name = "modifier";
-            this.modifier.ReadOnly = true;
-            this.modifier.Text = "Modif.";
-            this.modifier.Width = 70;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.DodgerBlue;
+            this.colModifier.DefaultCellStyle = dataGridViewCellStyle5;
+            this.colModifier.FillWeight = 204.8044F;
+            this.colModifier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.colModifier.HeaderText = "Modifier";
+            this.colModifier.MinimumWidth = 12;
+            this.colModifier.Name = "colModifier";
+            this.colModifier.ReadOnly = true;
+            this.colModifier.Text = "Modif.";
+            this.colModifier.Width = 70;
             // 
-            // supprimer
+            // colSupprimer
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.IndianRed;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.supprimer.DefaultCellStyle = dataGridViewCellStyle3;
-            this.supprimer.FillWeight = 228.4264F;
-            this.supprimer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.supprimer.HeaderText = "Supprimer";
-            this.supprimer.MinimumWidth = 12;
-            this.supprimer.Name = "supprimer";
-            this.supprimer.ReadOnly = true;
-            this.supprimer.Text = "Test de texte";
-            this.supprimer.Width = 70;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.IndianRed;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colSupprimer.DefaultCellStyle = dataGridViewCellStyle6;
+            this.colSupprimer.FillWeight = 228.4264F;
+            this.colSupprimer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.colSupprimer.HeaderText = "Supprimer";
+            this.colSupprimer.MinimumWidth = 12;
+            this.colSupprimer.Name = "colSupprimer";
+            this.colSupprimer.ReadOnly = true;
+            this.colSupprimer.Text = "Test de texte";
+            this.colSupprimer.Width = 70;
             // 
             // frmMain
             // 
@@ -756,12 +758,12 @@
         private System.Windows.Forms.TextBox tbxKmReel;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tbxKmInitial;
-        private System.Windows.Forms.DataGridViewTextBoxColumn depart;
-        private System.Windows.Forms.DataGridViewTextBoxColumn arrivee;
-        private System.Windows.Forms.DataGridViewTextBoxColumn distance;
-        private System.Windows.Forms.DataGridViewTextBoxColumn date;
-        private System.Windows.Forms.DataGridViewButtonColumn modifier;
-        private System.Windows.Forms.DataGridViewButtonColumn supprimer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDepart;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colArrivee;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDistance;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDate;
+        private System.Windows.Forms.DataGridViewButtonColumn colModifier;
+        private System.Windows.Forms.DataGridViewButtonColumn colSupprimer;
     }
 }
 
