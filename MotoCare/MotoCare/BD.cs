@@ -116,6 +116,13 @@ namespace MotoCare
             sQLiteCommand.Parameters.Add("@photo", DbType.Binary, 20).Value = photoEnByte;
             sQLiteCommand.ExecuteNonQuery();
         }
+        public void MettreAJourVehicule(string kmReel, Vehicule vehicule)
+        {
+            string query = string.Format("UPDATE vehicule SET kmReel = '{0}' WHERE idVehicule = '{1}';", kmReel, vehicule.IdVehicule);
+
+            SQLiteCommand sQLiteCommand = new SQLiteCommand(query, maConnexion);
+            sQLiteCommand.ExecuteNonQuery();
+        }
         public void CreerTrajet(string idVehicule, string depart, string arrivee,string distance, string date)
         {
             string query = string.Format("INSERT INTO trajet (depart, arrivee, distance, date, idVehicule)" +
@@ -155,6 +162,12 @@ namespace MotoCare
             SQLiteCommand sQLiteCommand = new SQLiteCommand(query, maConnexion);
             sQLiteCommand.ExecuteNonQuery();
         }
+        public void SupprimerTrajetsVehicule(string idVehicule)
+        {
+            string query = string.Format("DELETE FROM trajet WHERE idVehicule = '{0}';", idVehicule);
+            SQLiteCommand sQLiteCommand = new SQLiteCommand(query, maConnexion);
+            sQLiteCommand.ExecuteNonQuery();
+        }
         public void MettreAJourTrajet(string depart, string arrivee, string distance, string date, string idVehicule, string idTrajet)
         {
             string query = string.Format("UPDATE trajet SET depart = '{0}', arrivee = '{1}', distance = '{2}', date = '{3}', idVehicule = '{4}' " +
@@ -176,6 +189,28 @@ namespace MotoCare
             }
 
             return idTrajet;
+        }
+        public List<Entretien> LireEntretiens(string idVehicule)
+        {
+            List<Entretien> entretiens = new List<Entretien>();
+            string select = string.Format("SELECT idMaintenance, description, freqKm, kmDerniereMaintenance, dateDerniereMaintenance, fait, idVehicule " +
+                "FROM maintenance WHERE idVehicule = '{0}';", idVehicule);
+            SQLiteCommand command = new SQLiteCommand(select, maConnexion);
+            SQLiteDataReader dtReader = command.ExecuteReader();
+
+            while (dtReader.Read())
+            {
+                entretiens.Add(new Entretien(
+                    dtReader["idMaintenance"].ToString(),
+                    dtReader["description"].ToString(),
+                    dtReader["freqKm"].ToString(),
+                    dtReader["kmDerniereMaintenance"].ToString(),
+                    dtReader["dateDerniereMaintenance"].ToString(),
+                    dtReader["fait"].ToString(),
+                    dtReader["idVehicule"].ToString()
+                    ));
+            }
+            return entretiens;
         }
     }
 }

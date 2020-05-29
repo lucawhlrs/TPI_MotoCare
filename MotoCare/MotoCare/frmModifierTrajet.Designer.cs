@@ -59,14 +59,14 @@
             this.tbxArrivee.Margin = new System.Windows.Forms.Padding(1);
             this.tbxArrivee.Name = "tbxArrivee";
             this.tbxArrivee.Size = new System.Drawing.Size(200, 20);
-            this.tbxArrivee.TabIndex = 55;
+            this.tbxArrivee.TabIndex = 2;
             // 
             // dtpDate
             // 
             this.dtpDate.Location = new System.Drawing.Point(118, 154);
             this.dtpDate.Name = "dtpDate";
             this.dtpDate.Size = new System.Drawing.Size(200, 20);
-            this.dtpDate.TabIndex = 54;
+            this.dtpDate.TabIndex = 4;
             this.dtpDate.Value = new System.DateTime(2020, 5, 28, 0, 0, 0, 0);
             // 
             // label6
@@ -96,7 +96,7 @@
             this.btnValider.Margin = new System.Windows.Forms.Padding(1);
             this.btnValider.Name = "btnValider";
             this.btnValider.Size = new System.Drawing.Size(56, 23);
-            this.btnValider.TabIndex = 51;
+            this.btnValider.TabIndex = 5;
             this.btnValider.Text = "Valider";
             this.btnValider.UseVisualStyleBackColor = true;
             this.btnValider.Click += new System.EventHandler(this.btnValider_Click);
@@ -108,7 +108,7 @@
             this.btnAnnuler.Margin = new System.Windows.Forms.Padding(1);
             this.btnAnnuler.Name = "btnAnnuler";
             this.btnAnnuler.Size = new System.Drawing.Size(56, 23);
-            this.btnAnnuler.TabIndex = 52;
+            this.btnAnnuler.TabIndex = 6;
             this.btnAnnuler.Text = "Annuler";
             this.btnAnnuler.UseVisualStyleBackColor = true;
             // 
@@ -123,7 +123,8 @@
             0});
             this.nudDistance.Name = "nudDistance";
             this.nudDistance.Size = new System.Drawing.Size(200, 20);
-            this.nudDistance.TabIndex = 50;
+            this.nudDistance.TabIndex = 3;
+            this.nudDistance.Tag = "";
             // 
             // tbxDepart
             // 
@@ -131,7 +132,7 @@
             this.tbxDepart.Margin = new System.Windows.Forms.Padding(1);
             this.tbxDepart.Name = "tbxDepart";
             this.tbxDepart.Size = new System.Drawing.Size(200, 20);
-            this.tbxDepart.TabIndex = 47;
+            this.tbxDepart.TabIndex = 1;
             // 
             // label3
             // 
@@ -165,6 +166,7 @@
             // 
             // FrmModifierTrajet
             // 
+            this.AcceptButton = this.btnValider;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(327, 238);
@@ -180,6 +182,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "FrmModifierTrajet";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Modifier un trajet";

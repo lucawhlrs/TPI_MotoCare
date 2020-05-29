@@ -78,6 +78,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BD.cs" />
+    <Compile Include="Entretien.cs" />
     <Compile Include="frmAjoutTrajet.cs">
       <SubType>Form</SubType>
     </Compile>

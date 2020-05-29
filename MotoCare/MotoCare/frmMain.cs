@@ -78,13 +78,47 @@ namespace MotoCare
         }
         public void UpdateTrajetContent()
         {
+            int totalKmTrajets = 0;
             bd.maConnexion.Open();
             dtgvTrajets.Rows.Clear();
             foreach (Trajet trajet in bd.LireTrajets(vehiculeSelectionne.IdVehicule))
             {
                 dtgvTrajets.Rows.Add(trajet.Depart, trajet.Arrivee, trajet.Distance, trajet.Date);
+                totalKmTrajets += Convert.ToInt32(trajet.Distance);
             }
             bd.maConnexion.Close();
+
+            //Tri les données par ordre de date
+            dtgvTrajets.Sort(colDate, ListSortDirection.Ascending);
+            //Calcule les km réel en fonction des trajets et du kilométrage lors de l'achat
+            int kmReel = totalKmTrajets + Convert.ToInt32(vehiculeSelectionne.KmInitial);
+            tbxKmReel.Text = kmReel.ToString();
+            vehiculeSelectionne.KmReel = kmReel.ToString();
+            //Mettre à jour dans la bdd le kmReel
+            bd.maConnexion.Open();
+            bd.MettreAJourVehicule(kmReel.ToString(), vehiculeSelectionne);
+            bd.maConnexion.Close();
+        }
+        public void UpdateCarnetContent()
+        {
+            bd.maConnexion.Open();
+            dtgvCarnetEntretiens.Rows.Clear();
+            
+            //Pour les entretiens affiché comme étant effectués et pour quand-même afficher la date, etc du futur entretien pour le même contrôle (en fonction de la fréquence)
+            List<Entretien> entretiensFaitEtARefaire = new List<Entretien>();
+            foreach (Entretien entretien in bd.LireEntretiens(vehiculeSelectionne.IdVehicule))
+            {
+                int prochaineMaitenance = Convert.ToInt32(entretien.KmDerniereMaintenance) + Convert.ToInt32(entretien.FreqKm) - Convert.ToInt32(vehiculeSelectionne.KmReel);
+                
+                dtgvCarnetEntretiens.Rows.Add(entretien.Fait, entretien.Description, entretien.DateDerniereMaintenance, entretien.KmDerniereMaintenance, entretien.FreqKm, prochaineMaitenance.ToString());
+                //Pour les entretiens à refaire même si coché
+                if (entretien.Fait)
+                {
+                    entretiensFaitEtARefaire.Add(entretien);
+                }
+            }
+            bd.maConnexion.Close();
+            //dtgvCarnetEntretiens.DataSource = bd.LireEntretiens(vehiculeSelectionne.IdVehicule);
         }
         private void cbxVehicules_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -100,6 +134,7 @@ namespace MotoCare
                     tbxKmReel.Text = vehicule.KmReel;
 
                     UpdateTrajetContent();
+                    UpdateCarnetContent();
                 }
             }
         }
@@ -133,6 +168,7 @@ namespace MotoCare
             if (MessageBox.Show("Voulez-vous vraiment supprimer définitivement ce véhicule ?", "Supprimer véhicule", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 bd.maConnexion.Open();
+                bd.SupprimerTrajetsVehicule(vehiculeSelectionne.IdVehicule);
                 bd.SupprimerVehicule(vehiculeSelectionne);
                 bd.maConnexion.Close();
                 UpdateVehiculesAndCbxVehicules();
