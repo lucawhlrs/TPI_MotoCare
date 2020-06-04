@@ -20,8 +20,14 @@ namespace MotoCare
         //Création de l'objet BD
         BD bd = new BD();
 
+        List<PointInteret> pointsInterets = new List<PointInteret>();
         List<Vehicule> vehicules;
         Vehicule vehiculeSelectionne;
+        //Initialisation des valeur pour les marqueurs
+        string nomPointInteret = string.Empty;
+        string visitePointInteret = string.Empty;
+        string descriptionPointInteret = string.Empty;
+
         //Initialisation de la couche de la carte
         GMapOverlay overlayMarkers = new GMapOverlay("OverlayMarkers");
         
@@ -29,10 +35,43 @@ namespace MotoCare
         {
             InitializeComponent();
             vehicules = new List<Vehicule>();
+            
             UpdateVehiculesAndCbxVehicules();
+            bd.maConnexion.Open();
+            pointsInterets = bd.LirePointsInterets();
+            bd.maConnexion.Close();
             tpTrajets.SuspendLayout();
             tpCarnet.SuspendLayout();
             tpGestion.SuspendLayout();
+            AffichagePointsInterets();
+        }
+        public void AffichagePointsInterets()
+        {
+            foreach (PointInteret pointInteret in pointsInterets)
+            {
+                PointLatLng location = new PointLatLng(Convert.ToDouble(pointInteret.Lat), Convert.ToDouble(pointInteret.Lng));
+                AjouterMarqueurCarte(location, overlayMarkers, GMarkerGoogleType.green_dot, pointInteret);
+            }
+            //Clear la couche
+            gmcCarte.Overlays.Clear();
+
+            //Ajoute la couche
+            gmcCarte.Overlays.Add(overlayMarkers);
+        }
+        private void AjouterMarqueurCarte(PointLatLng latLng, GMapOverlay overlayMarkers, GMarkerGoogleType style, PointInteret pointInteret)
+        {
+            GMapMarker marqueur = new GMarkerGoogle(latLng, style);
+
+            string infos = string.Empty;
+
+            infos = "Nom: " + pointInteret.Nom + "\r\n";
+            infos += "Lieu visité: " + pointInteret.Visite + "\r\n";
+            infos += "Description: " + pointInteret.Description + "\r\n";
+
+            marqueur.ToolTipText = infos;
+
+            //Ajouter le marker à la couche
+            overlayMarkers.Markers.Add(marqueur);
         }
         public void UpdateVehiculesAndCbxVehicules()
         {
@@ -370,6 +409,45 @@ namespace MotoCare
                 UpdateTrajetContent();
                 UpdateCarnetContent();
                 UpdateGestionEntretiensContent();
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAjouterPointInteret_Click(object sender, EventArgs e)
+        {
+            nomPointInteret = tbxNomPointInteret.Text;
+            visitePointInteret = cbxVisitePointInteret.SelectedItem.ToString();
+            descriptionPointInteret = tbxDescriptionPointInteret.Text;
+        }
+
+        private void gmcCarte_OnMapClick(PointLatLng pointClick, MouseEventArgs e)
+        {
+            if (nomPointInteret != string.Empty || visitePointInteret != string.Empty || descriptionPointInteret != string.Empty)
+            {
+                PointInteret nouveauPointInteret = new PointInteret(pointClick.Lat.ToString().Replace(',', '.'), pointClick.Lng.ToString().Replace(',', '.'), nomPointInteret, visitePointInteret, descriptionPointInteret);
+                pointsInterets.Add(nouveauPointInteret);
+                AjouterMarqueurCarte(pointClick, overlayMarkers, GMarkerGoogleType.green_dot, nouveauPointInteret);
+
+                //Ajout à la BDD
+                bd.maConnexion.Open();
+                bd.CreerPointInteret(nouveauPointInteret);
+                bd.maConnexion.Close();
+
+                //Reset des valeurs
+                visitePointInteret = string.Empty;
+                descriptionPointInteret = string.Empty;
+
+                cbxVisitePointInteret.SelectedIndex = 0;
+                tbxDescriptionPointInteret.Text = "";
+
+                //Clear la couche
+                gmcCarte.Overlays.Clear();
+                //Ajoute la couche
+                gmcCarte.Overlays.Add(overlayMarkers);
             }
         }
     }

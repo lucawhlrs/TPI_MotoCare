@@ -96,6 +96,15 @@
             this.colFreqKmGestion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colModifierGestion = new System.Windows.Forms.DataGridViewButtonColumn();
             this.colSupprimerGestion = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.label8 = new System.Windows.Forms.Label();
+            this.btnAjouterPointInteret = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.tbxDescriptionPointInteret = new System.Windows.Forms.TextBox();
+            this.cbxVisitePointInteret = new System.Windows.Forms.ComboBox();
+            this.tbxNomPointInteret = new System.Windows.Forms.TextBox();
+            this.lblNomPointInteret = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.tcMenu.SuspendLayout();
             this.tpTrajets.SuspendLayout();
@@ -335,6 +344,15 @@
             // 
             // tpInterets
             // 
+            this.tpInterets.Controls.Add(this.lblNomPointInteret);
+            this.tpInterets.Controls.Add(this.tbxNomPointInteret);
+            this.tpInterets.Controls.Add(this.cbxVisitePointInteret);
+            this.tpInterets.Controls.Add(this.label8);
+            this.tpInterets.Controls.Add(this.btnAjouterPointInteret);
+            this.tpInterets.Controls.Add(this.label7);
+            this.tpInterets.Controls.Add(this.label6);
+            this.tpInterets.Controls.Add(this.label5);
+            this.tpInterets.Controls.Add(this.tbxDescriptionPointInteret);
             this.tpInterets.Controls.Add(this.gmcCarte);
             this.tpInterets.Location = new System.Drawing.Point(4, 22);
             this.tpInterets.Name = "tpInterets";
@@ -367,9 +385,10 @@
             this.gmcCarte.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
             this.gmcCarte.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
             this.gmcCarte.ShowTileGridLines = false;
-            this.gmcCarte.Size = new System.Drawing.Size(519, 359);
+            this.gmcCarte.Size = new System.Drawing.Size(591, 359);
             this.gmcCarte.TabIndex = 0;
-            this.gmcCarte.Zoom = 0D;
+            this.gmcCarte.Zoom = 10D;
+            this.gmcCarte.OnMapClick += new GMap.NET.WindowsForms.MapClick(this.gmcCarte_OnMapClick);
             this.gmcCarte.Load += new System.EventHandler(this.gmcCarte_Load);
             // 
             // gbVehicule
@@ -748,6 +767,97 @@
             this.colSupprimerGestion.Text = "Test de texte";
             this.colSupprimerGestion.Width = 70;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(613, 258);
+            this.label8.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(229, 26);
+            this.label8.TabIndex = 30;
+            this.label8.Text = "Après avoir cliqué sur \"Ajouter\", sélectionner\r\nl\'endroit du restaurant sur la ca" +
+    "rte pour l\'ajouter.";
+            // 
+            // btnAjouterPointInteret
+            // 
+            this.btnAjouterPointInteret.Location = new System.Drawing.Point(750, 212);
+            this.btnAjouterPointInteret.Margin = new System.Windows.Forms.Padding(1);
+            this.btnAjouterPointInteret.Name = "btnAjouterPointInteret";
+            this.btnAjouterPointInteret.Size = new System.Drawing.Size(154, 28);
+            this.btnAjouterPointInteret.TabIndex = 29;
+            this.btnAjouterPointInteret.Text = "Ajouter";
+            this.btnAjouterPointInteret.UseVisualStyleBackColor = true;
+            this.btnAjouterPointInteret.Click += new System.EventHandler(this.btnAjouterPointInteret_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(614, 10);
+            this.label7.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(165, 18);
+            this.label7.TabIndex = 28;
+            this.label7.Text = "Ajouter un point d\'intérêt";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(613, 102);
+            this.label6.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(63, 13);
+            this.label6.TabIndex = 27;
+            this.label6.Text = "Description:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(613, 77);
+            this.label5.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(86, 13);
+            this.label5.TabIndex = 26;
+            this.label5.Text = "Lieu déjà visité ?";
+            // 
+            // tbxDescriptionPointInteret
+            // 
+            this.tbxDescriptionPointInteret.Location = new System.Drawing.Point(750, 99);
+            this.tbxDescriptionPointInteret.Margin = new System.Windows.Forms.Padding(1);
+            this.tbxDescriptionPointInteret.Multiline = true;
+            this.tbxDescriptionPointInteret.Name = "tbxDescriptionPointInteret";
+            this.tbxDescriptionPointInteret.Size = new System.Drawing.Size(154, 101);
+            this.tbxDescriptionPointInteret.TabIndex = 21;
+            // 
+            // cbxVisitePointInteret
+            // 
+            this.cbxVisitePointInteret.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxVisitePointInteret.FormattingEnabled = true;
+            this.cbxVisitePointInteret.Items.AddRange(new object[] {
+            "Oui",
+            "Non"});
+            this.cbxVisitePointInteret.Location = new System.Drawing.Point(750, 74);
+            this.cbxVisitePointInteret.Name = "cbxVisitePointInteret";
+            this.cbxVisitePointInteret.Size = new System.Drawing.Size(154, 21);
+            this.cbxVisitePointInteret.TabIndex = 31;
+            // 
+            // tbxNomPointInteret
+            // 
+            this.tbxNomPointInteret.Location = new System.Drawing.Point(750, 48);
+            this.tbxNomPointInteret.Name = "tbxNomPointInteret";
+            this.tbxNomPointInteret.Size = new System.Drawing.Size(154, 20);
+            this.tbxNomPointInteret.TabIndex = 32;
+            // 
+            // lblNomPointInteret
+            // 
+            this.lblNomPointInteret.AutoSize = true;
+            this.lblNomPointInteret.Location = new System.Drawing.Point(613, 51);
+            this.lblNomPointInteret.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.lblNomPointInteret.Name = "lblNomPointInteret";
+            this.lblNomPointInteret.Size = new System.Drawing.Size(32, 13);
+            this.lblNomPointInteret.TabIndex = 33;
+            this.lblNomPointInteret.Text = "Nom:";
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -769,6 +879,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgvCarnetEntretiens)).EndInit();
             this.tpGestion.ResumeLayout(false);
             this.tpInterets.ResumeLayout(false);
+            this.tpInterets.PerformLayout();
             this.gbVehicule.ResumeLayout(false);
             this.gbVehicule.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPhoto)).EndInit();
@@ -840,6 +951,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colFreqKmGestion;
         private System.Windows.Forms.DataGridViewButtonColumn colModifierGestion;
         private System.Windows.Forms.DataGridViewButtonColumn colSupprimerGestion;
+        private System.Windows.Forms.ComboBox cbxVisitePointInteret;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button btnAjouterPointInteret;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox tbxDescriptionPointInteret;
+        private System.Windows.Forms.Label lblNomPointInteret;
+        private System.Windows.Forms.TextBox tbxNomPointInteret;
     }
 }
 

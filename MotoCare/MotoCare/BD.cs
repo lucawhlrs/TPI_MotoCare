@@ -299,5 +299,33 @@ namespace MotoCare
 
             return estDejaFait;
         }
+        public List<PointInteret> LirePointsInterets()
+        {
+            List<PointInteret> pointsInterets = new List<PointInteret>();
+            sql = "SELECT lat, lng, nom, visite, description FROM pointInteret";
+            SQLiteCommand command = new SQLiteCommand(sql, maConnexion);
+            SQLiteDataReader dtReader = command.ExecuteReader();
+
+            while (dtReader.Read())
+            {
+                pointsInterets.Add(new PointInteret(
+                    dtReader["lat"].ToString(),
+                    dtReader["lng"].ToString(),
+                    dtReader["nom"].ToString(),
+                    dtReader["visite"].ToString(),
+                    dtReader["description"].ToString()
+                    ));
+            }
+            return pointsInterets;
+        }
+        public void CreerPointInteret(PointInteret pointInteret)
+        {
+            //Remplacer les ' par des double '' pour éviter les erreur avec le SQL
+            string query = string.Format("INSERT INTO pointInteret (lat, lng, nom, visite, description) " +
+                                            "VALUES ('{0}', '{1}', '{2}', '{3}', '{4}');", pointInteret.Lat, pointInteret.Lng, pointInteret.Nom.Replace("'", "''"), pointInteret.Visite ,pointInteret.Description.Replace("'", "''"));
+
+            SQLiteCommand sQLiteCommand = new SQLiteCommand(query, maConnexion);
+            sQLiteCommand.ExecuteNonQuery();
+        }
     }
 }
