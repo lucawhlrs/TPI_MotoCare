@@ -104,22 +104,21 @@ namespace MotoCare
             bd.maConnexion.Open();
             dtgvCarnetEntretiens.Rows.Clear();
             
-            //Pour les entretiens affiché comme étant effectués et pour quand-même afficher la date, etc du futur entretien pour le même contrôle (en fonction de la fréquence)
-            List<Entretien> entretiensFaitEtARefaire = new List<Entretien>();
             foreach (Entretien entretien in bd.LireEntretiens(vehiculeSelectionne.IdVehicule))
             {
                 //Pour calculer dans combien de km aura lieux la maintenance (soit c'est la première et c'est du coup kmPremiereMaintenance soit il faut la calculer
                 int prochaineMaitenance = 0;
                 if (entretien.KmPremiereMaintenance == "0")
-                    prochaineMaitenance = Convert.ToInt32(entretien.KmDerniereMaintenance) + Convert.ToInt32(entretien.FreqKm) - Convert.ToInt32(vehiculeSelectionne.KmReel);
-                else
-                    prochaineMaitenance = Convert.ToInt32(entretien.KmPremiereMaintenance);
-           
-                dtgvCarnetEntretiens.Rows.Add(entretien.Fait, entretien.Description, entretien.DateDerniereMaintenance, entretien.KmDerniereMaintenance, entretien.FreqKm, prochaineMaitenance.ToString());
-                //Pour les entretiens à refaire même si coché
-                if (entretien.Fait)
                 {
-                    entretiensFaitEtARefaire.Add(entretien);
+                    //C'est une répétition d'un entretien
+                    prochaineMaitenance = Convert.ToInt32(entretien.KmDerniereMaintenance) + Convert.ToInt32(entretien.FreqKm) - Convert.ToInt32(vehiculeSelectionne.KmReel);
+                    dtgvCarnetEntretiens.Rows.Add(entretien.IdMaintenance, entretien.Fait, entretien.Description, entretien.DateDerniereMaintenance, entretien.KmDerniereMaintenance, entretien.FreqKm, prochaineMaitenance.ToString());
+                }
+                else
+                {
+                    //C'est le tout premier entretien
+                    prochaineMaitenance = Convert.ToInt32(entretien.KmPremiereMaintenance) - Convert.ToInt32(vehiculeSelectionne.KmReel);
+                    dtgvCarnetEntretiens.Rows.Add(entretien.IdMaintenance, entretien.Fait, entretien.Description, "", "", entretien.FreqKm, prochaineMaitenance.ToString());
                 }
             }
             bd.maConnexion.Close();
@@ -150,9 +149,13 @@ namespace MotoCare
 
             foreach (Entretien entretien in bd.LireEntretiens(vehiculeSelectionne.IdVehicule))
             {
-                dtgvGestionEntretiens.Rows.Add(entretien.Description, Convert.ToInt32(entretien.KmDerniereMaintenance) + Convert.ToInt32(entretien.FreqKm), entretien.FreqKm);
+                if (entretien.KmPremiereMaintenance == "0")
+                    dtgvGestionEntretiens.Rows.Add(entretien.IdMaintenance, entretien.Fait, entretien.Description, Convert.ToInt32(entretien.KmDerniereMaintenance) + Convert.ToInt32(entretien.FreqKm), entretien.FreqKm);
+                else
+                    dtgvGestionEntretiens.Rows.Add(entretien.IdMaintenance, entretien.Fait, entretien.Description, Convert.ToInt32(entretien.KmPremiereMaintenance), entretien.FreqKm);
             }
             bd.maConnexion.Close();
+            dtgvGestionEntretiens.Sort(colKmLorsEntretienGestion, ListSortDirection.Ascending);
             //dtgvCarnetEntretiens.DataSource = bd.LireEntretiens(vehiculeSelectionne.IdVehicule);
         }
         private void cbxVehicules_SelectedIndexChanged(object sender, EventArgs e)
@@ -301,7 +304,8 @@ namespace MotoCare
                 string kmNouvelleMaintenance = vehiculeSelectionne.KmReel;
 
                 bd.maConnexion.Open();
-                string idMaintenance = bd.ObtenirIdEntretienAvecReste(description, freqKm, kmDerniereMaintenance, dateDerniereMaintenance, faitActuel, vehiculeSelectionne.IdVehicule);
+                //string idMaintenance = bd.ObtenirIdEntretienAvecReste(description, freqKm, kmDerniereMaintenance, dateDerniereMaintenance, faitActuel, vehiculeSelectionne.IdVehicule);
+                string idMaintenance = dtgvCarnetEntretiens.Rows[ligne].Cells["colIdEntretien"].Value.ToString();
                 bd.MettreAJourEntretien(idMaintenance, faitApresClique);
                 bd.CreerEntretien(description, freqKm, "-", kmNouvelleMaintenance, dateActuelle.ToString(), "0", vehiculeSelectionne.IdVehicule);
                 bd.maConnexion.Close();
@@ -337,15 +341,23 @@ namespace MotoCare
                 string kmDerniereMaintenance = (Convert.ToInt32(dtgvGestionEntretiens.Rows[ligne].Cells["colKmLorsEntretienGestion"].Value) - Convert.ToInt32(dtgvGestionEntretiens.Rows[ligne].Cells["colFreqKmGestion"].Value)).ToString();
 
                 bd.maConnexion.Open();
-                string idEntretien = bd.ObtenirIdEntretienAvecReste(description, freqKm, kmDerniereMaintenance, vehiculeSelectionne.IdVehicule);
-
+                //string idEntretien = bd.ObtenirIdEntretienAvecReste(description, freqKm, kmDerniereMaintenance, vehiculeSelectionne.IdVehicule);
+                string idEntretien = dtgvGestionEntretiens.Rows[ligne].Cells["colIdEntretienGestion"].Value.ToString();
                 if (dtgvGestionEntretiens.Columns[e.ColumnIndex].Name == "colModifierGestion")
                 {
-                    FrmModifierEntretien frmModifierEntretien = new FrmModifierEntretien(description, freqKm);
-                    if (frmModifierEntretien.ShowDialog() == DialogResult.OK)
+                    if (!bd.EstDejaFait(idEntretien))
                     {
-                        bd.MettreAJourEntretien(frmModifierEntretien.Description, frmModifierEntretien.FreqKm, idEntretien);
+                        FrmModifierEntretien frmModifierEntretien = new FrmModifierEntretien(description, freqKm);
+                        if (frmModifierEntretien.ShowDialog() == DialogResult.OK)
+                        {
+                            bd.MettreAJourEntretien(frmModifierEntretien.Description, frmModifierEntretien.FreqKm, idEntretien);
+                        }
                     }
+                    else
+                    {
+                        MessageBox.Show("Vous ne pouvez pas modifier un entretien déjà effectué.", "Impossible", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    
                 }
                 else if (dtgvGestionEntretiens.Columns[e.ColumnIndex].Name == "colSupprimerGestion")
                 {

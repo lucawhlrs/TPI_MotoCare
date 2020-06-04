@@ -9,6 +9,7 @@ namespace MotoCare
 {
     public class Entretien
     {
+        private string _idMaintenance;
         private string _description;
         private string _freqKm;
         private string _kmPremiereMaintenance;
@@ -24,9 +25,11 @@ namespace MotoCare
         public DateTime DateDerniereMaintenance { get => _dateDerniereMaintenance; set => _dateDerniereMaintenance = value; }
         public bool Fait { get => _fait; set => _fait = value; }
         public string IdVehicule { get => _idVehicule; set => _idVehicule = value; }
+        public string IdMaintenance { get => _idMaintenance; set => _idMaintenance = value; }
 
-        public Entretien(string description, string freqKm, string kmPremiereMaintenance, string kmDerniereMaintenance, string dateDerniereMaintenance, string fait, string idVehicule)
+        public Entretien(string idMaintenance, string description, string freqKm, string kmPremiereMaintenance, string kmDerniereMaintenance, string dateDerniereMaintenance, string fait, string idVehicule)
         {
+            IdMaintenance = idMaintenance;
             Description = description;
             FreqKm = freqKm;
             if (kmPremiereMaintenance == "0")

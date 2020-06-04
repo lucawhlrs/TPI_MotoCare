@@ -197,14 +197,16 @@ namespace MotoCare
         public List<Entretien> LireEntretiens(string idVehicule)
         {
             List<Entretien> entretiens = new List<Entretien>();
-            string select = string.Format("SELECT description, freqKm, kmPremiereMaintenance, kmDerniereMaintenance, dateDerniereMaintenance, fait, idVehicule " +
-                "FROM maintenance WHERE idVehicule = '{0}';", idVehicule);
+            string select = string.Format("SELECT idMaintenance, description, freqKm, kmPremiereMaintenance, kmDerniereMaintenance, dateDerniereMaintenance, fait, idVehicule " +
+                "FROM maintenance WHERE idVehicule = '{0}'" +
+                "ORDER BY kmDerniereMaintenance ASC;", idVehicule);
             SQLiteCommand command = new SQLiteCommand(select, maConnexion);
             SQLiteDataReader dtReader = command.ExecuteReader();
 
             while (dtReader.Read())
             {
                 entretiens.Add(new Entretien(
+                    dtReader["idMaintenance"].ToString(),
                     dtReader["description"].ToString(),
                     dtReader["freqKm"].ToString(),
                     dtReader["kmPremiereMaintenance"].ToString(),
@@ -281,6 +283,21 @@ namespace MotoCare
 
             SQLiteCommand sQLiteCommand = new SQLiteCommand(query, maConnexion);
             sQLiteCommand.ExecuteNonQuery();
+        }
+        public bool EstDejaFait(string idEntretien)
+        {
+            bool estDejaFait = false;
+
+            string select = string.Format("SELECT fait FROM maintenance WHERE idMaintenance = '{0}';", idEntretien);
+
+            SQLiteCommand command = new SQLiteCommand(select, maConnexion);
+            SQLiteDataReader dtReader = command.ExecuteReader();
+            while (dtReader.Read())
+            {
+                estDejaFait = Convert.ToBoolean(dtReader["fait"]);
+            }
+
+            return estDejaFait;
         }
     }
 }
