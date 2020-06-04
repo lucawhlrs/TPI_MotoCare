@@ -109,13 +109,43 @@ namespace MotoCare
             foreach (Entretien entretien in bd.LireEntretiens(vehiculeSelectionne.IdVehicule))
             {
                 int prochaineMaitenance = Convert.ToInt32(entretien.KmDerniereMaintenance) + Convert.ToInt32(entretien.FreqKm) - Convert.ToInt32(vehiculeSelectionne.KmReel);
-                
+           
                 dtgvCarnetEntretiens.Rows.Add(entretien.Fait, entretien.Description, entretien.DateDerniereMaintenance, entretien.KmDerniereMaintenance, entretien.FreqKm, prochaineMaitenance.ToString());
                 //Pour les entretiens à refaire même si coché
                 if (entretien.Fait)
                 {
                     entretiensFaitEtARefaire.Add(entretien);
                 }
+            }
+            bd.maConnexion.Close();
+
+            //Détails d'affichage
+            foreach (DataGridViewRow row in dtgvCarnetEntretiens.Rows)
+            {
+                if (Convert.ToBoolean(row.Cells["colFait"].Value))
+                {
+                    row.DefaultCellStyle.ForeColor = Color.Green;
+                    row.Cells["colProchaineMaintenance"].Value = "--";
+                }
+                else
+                {
+                    if (Convert.ToInt32(row.Cells["colProchaineMaintenance"].Value) <= 0)
+                        row.DefaultCellStyle.ForeColor = Color.Red;
+                    else if (Convert.ToInt32(row.Cells["colProchaineMaintenance"].Value) <= 100)
+                        row.DefaultCellStyle.ForeColor = Color.Orange;
+                }
+            }
+            dtgvCarnetEntretiens.Sort(colProchaineMaintenance, ListSortDirection.Ascending);
+            //dtgvCarnetEntretiens.DataSource = bd.LireEntretiens(vehiculeSelectionne.IdVehicule);
+        }
+        public void UpdateGestionEntretiensContent()
+        {
+            bd.maConnexion.Open();
+            dtgvGestionEntretiens.Rows.Clear();
+
+            foreach (Entretien entretien in bd.LireEntretiens(vehiculeSelectionne.IdVehicule))
+            {
+                dtgvGestionEntretiens.Rows.Add(entretien.Description, Convert.ToInt32(entretien.KmDerniereMaintenance) + Convert.ToInt32(entretien.FreqKm), entretien.FreqKm);
             }
             bd.maConnexion.Close();
             //dtgvCarnetEntretiens.DataSource = bd.LireEntretiens(vehiculeSelectionne.IdVehicule);
@@ -135,6 +165,7 @@ namespace MotoCare
 
                     UpdateTrajetContent();
                     UpdateCarnetContent();
+                    UpdateGestionEntretiensContent();
                 }
             }
         }
@@ -195,6 +226,8 @@ namespace MotoCare
                 bd.maConnexion.Close();
 
                 UpdateTrajetContent();
+                UpdateCarnetContent();
+                UpdateGestionEntretiensContent();
             }
         }
         private void dtgvTrajets_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -230,6 +263,96 @@ namespace MotoCare
                 }
                 bd.maConnexion.Close();
                 UpdateTrajetContent();
+                UpdateCarnetContent();
+                UpdateGestionEntretiensContent();
+            }
+        }
+
+        private void dtgvCarnetEntretiens_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridView data = (DataGridView)sender;
+            if (dtgvCarnetEntretiens.Columns[e.ColumnIndex] is DataGridViewCheckBoxColumn && !Convert.ToBoolean(dtgvCarnetEntretiens.Rows[dtgvCarnetEntretiens.Rows[e.RowIndex].Index].Cells["colFait"].Value))
+            {
+                int ligne = dtgvCarnetEntretiens.Rows[e.RowIndex].Index;
+                string description = dtgvCarnetEntretiens.Rows[ligne].Cells["colDescription"].Value.ToString();
+                string freqKm = dtgvCarnetEntretiens.Rows[ligne].Cells["colFrequence"].Value.ToString();
+                string kmDerniereMaintenance = dtgvCarnetEntretiens.Rows[ligne].Cells["colKmDerniereMaintenance"].Value.ToString();
+                string dateDerniereMaintenance = dtgvCarnetEntretiens.Rows[ligne].Cells["colDateDerniereMaintenance"].Value.ToString();
+                string faitActuel = string.Empty;
+                string faitApresClique = string.Empty;
+                if (Convert.ToBoolean(dtgvCarnetEntretiens.Rows[ligne].Cells["colFait"].Value))
+                {
+                    faitActuel = "1";
+                    faitApresClique = "0";
+                }
+                else
+                {
+                    faitActuel = "0";
+                    faitApresClique = "1";
+                }
+                //Date et kmDerniereMaintenance une fois avoir coché la checkbox (donc après avoir effectué la maintenance)
+                string dateMtn = DateTime.Now.ToString();
+                DateTime dateActuelle = new DateTime(Convert.ToInt32(dateMtn.Substring(6, 4)), Convert.ToInt32(dateMtn.Substring(3, 2)), Convert.ToInt32(dateMtn.Substring(0, 2)));
+                string kmNouvelleMaintenance = vehiculeSelectionne.KmReel;
+
+                bd.maConnexion.Open();
+                string idMaintenance = bd.ObtenirIdEntretienAvecReste(description, freqKm, kmDerniereMaintenance, dateDerniereMaintenance, faitActuel, vehiculeSelectionne.IdVehicule);
+                bd.MettreAJourEntretien(idMaintenance, faitApresClique);
+                bd.CreerEntretien(description, freqKm, kmNouvelleMaintenance, dateActuelle.ToString(), "0", vehiculeSelectionne.IdVehicule);
+                bd.maConnexion.Close();
+                UpdateCarnetContent();
+                UpdateGestionEntretiensContent();
+            }
+        }
+
+        private void btnAjoutEntretien_Click(object sender, EventArgs e)
+        {
+            string dateMtn = DateTime.Now.ToString();
+            DateTime dateActuelle = new DateTime(Convert.ToInt32(dateMtn.Substring(6, 4)), Convert.ToInt32(dateMtn.Substring(3, 2)), Convert.ToInt32(dateMtn.Substring(0, 2)));
+
+            FrmAjoutEntretien frmAjoutEntretien = new FrmAjoutEntretien();
+            if (frmAjoutEntretien.ShowDialog() == DialogResult.OK)
+            {
+                bd.maConnexion.Open();
+                bd.CreerEntretien(frmAjoutEntretien.Description, frmAjoutEntretien.FreqKm, vehiculeSelectionne.KmReel, dateActuelle.ToString(), "0", vehiculeSelectionne.IdVehicule);
+                bd.maConnexion.Close();
+
+                UpdateCarnetContent();
+                UpdateGestionEntretiensContent();
+            }
+        }
+
+        private void dtgvGestionEntretiens_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dtgvGestionEntretiens.Columns[e.ColumnIndex] is DataGridViewButtonColumn)
+            {
+                int ligne = dtgvGestionEntretiens.Rows[e.RowIndex].Index;
+                string description = dtgvGestionEntretiens.Rows[ligne].Cells["colDescriptionGestion"].Value.ToString();
+                string freqKm = dtgvGestionEntretiens.Rows[ligne].Cells["colFreqKmGestion"].Value.ToString();
+                string kmDerniereMaintenance = (Convert.ToInt32(dtgvGestionEntretiens.Rows[ligne].Cells["colKmLorsEntretienGestion"].Value) - Convert.ToInt32(dtgvGestionEntretiens.Rows[ligne].Cells["colFreqKmGestion"].Value)).ToString();
+
+                bd.maConnexion.Open();
+                string idEntretien = bd.ObtenirIdEntretienAvecReste(description, freqKm, kmDerniereMaintenance, vehiculeSelectionne.IdVehicule);
+
+                if (dtgvGestionEntretiens.Columns[e.ColumnIndex].Name == "colModifierGestion")
+                {
+                    //FrmModifierTrajet frmModifierTrajet = new FrmModifierTrajet(depart, arrivee, distance, date);
+                    //if (frmModifierTrajet.ShowDialog() == DialogResult.OK)
+                    //{
+                    //    bd.MettreAJourTrajet(frmModifierTrajet.Depart, frmModifierTrajet.Arrivee, frmModifierTrajet.Distance, frmModifierTrajet.Date, vehiculeSelectionne.IdVehicule, idTrajet);
+                    //}
+                }
+                else if (dtgvGestionEntretiens.Columns[e.ColumnIndex].Name == "colSupprimerGestion")
+                {
+                    if (MessageBox.Show("Voulez-vous vraiment supprimer cet entretien ?", "Supprimer entretien", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        bd.SupprimerEntretien(idEntretien);
+                    }
+                }
+                bd.maConnexion.Close();
+                UpdateTrajetContent();
+                UpdateCarnetContent();
+                UpdateGestionEntretiensContent();
             }
         }
     }

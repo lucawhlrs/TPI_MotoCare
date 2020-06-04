@@ -34,9 +34,9 @@ namespace MotoCare
 
         private void btnValider_Click(object sender, EventArgs e)
         {
-            if (Depart == "" || Arrivee == "" || Distance == "" || Date == "")
+            if (Depart == "" || Arrivee == "" || Date == "")
             {
-                lblErreurAjoutTrajet.Text = "Veuillez renseigner tous les champs";
+                lblErreurAjoutTrajet.Text = "Veuillez renseigner tous les champs.";
             }
             else
             {

@@ -32,7 +32,7 @@ namespace MotoCare
         {
             if (Depart == "" || Arrivee == "" || Date == "")
             {
-                lblErreurAjoutTrajet.Text = "Veuillez renseigner tous les champs";
+                lblErreurAjoutTrajet.Text = "Veuillez renseigner tous les champs.";
             }
             else
             {

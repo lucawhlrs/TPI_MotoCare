@@ -193,7 +193,7 @@ namespace MotoCare
         public List<Entretien> LireEntretiens(string idVehicule)
         {
             List<Entretien> entretiens = new List<Entretien>();
-            string select = string.Format("SELECT idMaintenance, description, freqKm, kmDerniereMaintenance, dateDerniereMaintenance, fait, idVehicule " +
+            string select = string.Format("SELECT description, freqKm, kmDerniereMaintenance, dateDerniereMaintenance, fait, idVehicule " +
                 "FROM maintenance WHERE idVehicule = '{0}';", idVehicule);
             SQLiteCommand command = new SQLiteCommand(select, maConnexion);
             SQLiteDataReader dtReader = command.ExecuteReader();
@@ -201,7 +201,6 @@ namespace MotoCare
             while (dtReader.Read())
             {
                 entretiens.Add(new Entretien(
-                    dtReader["idMaintenance"].ToString(),
                     dtReader["description"].ToString(),
                     dtReader["freqKm"].ToString(),
                     dtReader["kmDerniereMaintenance"].ToString(),
@@ -211,6 +210,64 @@ namespace MotoCare
                     ));
             }
             return entretiens;
+        }
+        public string ObtenirIdEntretienAvecReste(string description, string freqKm, string kmDerniereMaintenance, string dateDerniereMaintenance, string fait, string idVehicule)
+        {
+            string idMaintenance = string.Empty;
+
+            string select = string.Format("SELECT idMaintenance " +
+                "FROM maintenance " +
+                "WHERE description = '{0}' AND freqKm = '{1}' AND kmDerniereMaintenance = '{2}' AND dateDerniereMaintenance = '{3}' AND fait = '{4}' AND idVehicule = '{5}' LIMIT 1;", 
+                description, freqKm, kmDerniereMaintenance, dateDerniereMaintenance, fait, idVehicule);
+
+            SQLiteCommand command = new SQLiteCommand(select, maConnexion);
+            SQLiteDataReader dtReader = command.ExecuteReader();
+            while (dtReader.Read())
+            {
+                idMaintenance = dtReader["idMaintenance"].ToString();
+            }
+
+            return idMaintenance;
+        }
+        public void MettreAJourEntretien(string idMaintenance, string fait)
+        {
+            string query = string.Format("UPDATE maintenance SET fait = '{0}' " +
+                "WHERE idMaintenance = '{1}'", fait, idMaintenance);
+
+            SQLiteCommand sQLiteCommand = new SQLiteCommand(query, maConnexion);
+            sQLiteCommand.ExecuteNonQuery();
+        }
+        public void CreerEntretien(string description, string freqKm, string kmDerniereMaintenance, string dateDerniereMaintenance, string fait, string idVehicule)
+        {
+            string query = string.Format("INSERT INTO maintenance (description, freqKm, kmDerniereMaintenance, dateDerniereMaintenance, fait, idVehicule)" +
+                "VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}')", description, freqKm, kmDerniereMaintenance, dateDerniereMaintenance, fait, idVehicule);
+
+            SQLiteCommand sQLiteCommand = new SQLiteCommand(query, maConnexion);
+            sQLiteCommand.ExecuteNonQuery();
+        }
+        public string ObtenirIdEntretienAvecReste(string description, string freqKm, string kmDerniereMaintenance, string idVehicule)
+        {
+            string idMaintenance = string.Empty;
+
+            string select = string.Format("SELECT idMaintenance " +
+                "FROM maintenance " +
+                "WHERE description = '{0}' AND freqKm = '{1}' AND kmDerniereMaintenance = '{2}' AND idVehicule = '{3}' LIMIT 1;",
+                description, freqKm, kmDerniereMaintenance, idVehicule);
+
+            SQLiteCommand command = new SQLiteCommand(select, maConnexion);
+            SQLiteDataReader dtReader = command.ExecuteReader();
+            while (dtReader.Read())
+            {
+                idMaintenance = dtReader["idMaintenance"].ToString();
+            }
+
+            return idMaintenance;
+        }
+        public void SupprimerEntretien(string idEntretien)
+        {
+            string query = string.Format("DELETE FROM maintenance WHERE idMaintenance = '{0}';", idEntretien);
+            SQLiteCommand sQLiteCommand = new SQLiteCommand(query, maConnexion);
+            sQLiteCommand.ExecuteNonQuery();
         }
     }
 }
