@@ -123,6 +123,8 @@ namespace MotoCare
             SQLiteCommand sQLiteCommand = new SQLiteCommand(query, maConnexion);
             sQLiteCommand.ExecuteNonQuery();
         }
+
+
         public void CreerTrajet(string idVehicule, string depart, string arrivee,string distance, string date)
         {
             string query = string.Format("INSERT INTO trajet (depart, arrivee, distance, date, idVehicule)" +
@@ -190,10 +192,12 @@ namespace MotoCare
 
             return idTrajet;
         }
+
+
         public List<Entretien> LireEntretiens(string idVehicule)
         {
             List<Entretien> entretiens = new List<Entretien>();
-            string select = string.Format("SELECT description, freqKm, kmDerniereMaintenance, dateDerniereMaintenance, fait, idVehicule " +
+            string select = string.Format("SELECT description, freqKm, kmPremiereMaintenance, kmDerniereMaintenance, dateDerniereMaintenance, fait, idVehicule " +
                 "FROM maintenance WHERE idVehicule = '{0}';", idVehicule);
             SQLiteCommand command = new SQLiteCommand(select, maConnexion);
             SQLiteDataReader dtReader = command.ExecuteReader();
@@ -203,6 +207,7 @@ namespace MotoCare
                 entretiens.Add(new Entretien(
                     dtReader["description"].ToString(),
                     dtReader["freqKm"].ToString(),
+                    dtReader["kmPremiereMaintenance"].ToString(),
                     dtReader["kmDerniereMaintenance"].ToString(),
                     dtReader["dateDerniereMaintenance"].ToString(),
                     dtReader["fait"].ToString(),
@@ -237,10 +242,10 @@ namespace MotoCare
             SQLiteCommand sQLiteCommand = new SQLiteCommand(query, maConnexion);
             sQLiteCommand.ExecuteNonQuery();
         }
-        public void CreerEntretien(string description, string freqKm, string kmDerniereMaintenance, string dateDerniereMaintenance, string fait, string idVehicule)
+        public void CreerEntretien(string description, string freqKm, string kmPremiereMaintenance, string kmDerniereMaintenance, string dateDerniereMaintenance, string fait, string idVehicule)
         {
-            string query = string.Format("INSERT INTO maintenance (description, freqKm, kmDerniereMaintenance, dateDerniereMaintenance, fait, idVehicule)" +
-                "VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}')", description, freqKm, kmDerniereMaintenance, dateDerniereMaintenance, fait, idVehicule);
+            string query = string.Format("INSERT INTO maintenance (description, freqKm, kmPremiereMaintenance, kmDerniereMaintenance, dateDerniereMaintenance, fait, idVehicule)" +
+                "VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}')", description, freqKm, kmPremiereMaintenance, kmDerniereMaintenance, dateDerniereMaintenance, fait, idVehicule);
 
             SQLiteCommand sQLiteCommand = new SQLiteCommand(query, maConnexion);
             sQLiteCommand.ExecuteNonQuery();
@@ -266,6 +271,14 @@ namespace MotoCare
         public void SupprimerEntretien(string idEntretien)
         {
             string query = string.Format("DELETE FROM maintenance WHERE idMaintenance = '{0}';", idEntretien);
+            SQLiteCommand sQLiteCommand = new SQLiteCommand(query, maConnexion);
+            sQLiteCommand.ExecuteNonQuery();
+        }
+        public void MettreAJourEntretien(string description, string freqKm, string idMaintenance)
+        {
+            string query = string.Format("UPDATE maintenance SET description = '{0}', freqKm = '{1}' " +
+                "WHERE idMaintenance = '{2}'", description, freqKm, idMaintenance);
+
             SQLiteCommand sQLiteCommand = new SQLiteCommand(query, maConnexion);
             sQLiteCommand.ExecuteNonQuery();
         }

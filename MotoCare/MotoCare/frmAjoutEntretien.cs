@@ -13,10 +13,13 @@ namespace MotoCare
     public partial class FrmAjoutEntretien : Form
     {
         private string _description;
+        private string _kmPremierEntretien;
         private string _freqKm;
 
         public string Description { get => tbxDescription.Text; set => _description = value; }
+        public string KmPremierEntretien { get => tbxKmPremierEntretien.Text; set => _kmPremierEntretien = value; }
         public string FreqKm { get => tbxFreqKm.Text; set => _freqKm = value; }
+
         public FrmAjoutEntretien()
         {
             InitializeComponent();
@@ -24,7 +27,7 @@ namespace MotoCare
 
         private void btnValider_Click(object sender, EventArgs e)
         {
-            if (Description == "" || FreqKm == "")
+            if (Description == "" || KmPremierEntretien == "" || FreqKm == "")
             {
                 lblErreurAjoutTrajet.Text = "Veuillez renseigner tous les champs";
             }

@@ -103,6 +103,12 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmModifierEntretien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModifierEntretien.Designer.cs">
+      <DependentUpon>frmModifierEntretien.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmModifierTrajet.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,6 +137,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModifierEntretien.resx">
+      <DependentUpon>frmModifierEntretien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmModifierTrajet.resx">
       <DependentUpon>frmModifierTrajet.cs</DependentUpon>

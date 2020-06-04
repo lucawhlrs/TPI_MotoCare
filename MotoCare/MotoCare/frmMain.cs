@@ -108,7 +108,12 @@ namespace MotoCare
             List<Entretien> entretiensFaitEtARefaire = new List<Entretien>();
             foreach (Entretien entretien in bd.LireEntretiens(vehiculeSelectionne.IdVehicule))
             {
-                int prochaineMaitenance = Convert.ToInt32(entretien.KmDerniereMaintenance) + Convert.ToInt32(entretien.FreqKm) - Convert.ToInt32(vehiculeSelectionne.KmReel);
+                //Pour calculer dans combien de km aura lieux la maintenance (soit c'est la première et c'est du coup kmPremiereMaintenance soit il faut la calculer
+                int prochaineMaitenance = 0;
+                if (entretien.KmPremiereMaintenance == "0")
+                    prochaineMaitenance = Convert.ToInt32(entretien.KmDerniereMaintenance) + Convert.ToInt32(entretien.FreqKm) - Convert.ToInt32(vehiculeSelectionne.KmReel);
+                else
+                    prochaineMaitenance = Convert.ToInt32(entretien.KmPremiereMaintenance);
            
                 dtgvCarnetEntretiens.Rows.Add(entretien.Fait, entretien.Description, entretien.DateDerniereMaintenance, entretien.KmDerniereMaintenance, entretien.FreqKm, prochaineMaitenance.ToString());
                 //Pour les entretiens à refaire même si coché
@@ -298,7 +303,7 @@ namespace MotoCare
                 bd.maConnexion.Open();
                 string idMaintenance = bd.ObtenirIdEntretienAvecReste(description, freqKm, kmDerniereMaintenance, dateDerniereMaintenance, faitActuel, vehiculeSelectionne.IdVehicule);
                 bd.MettreAJourEntretien(idMaintenance, faitApresClique);
-                bd.CreerEntretien(description, freqKm, kmNouvelleMaintenance, dateActuelle.ToString(), "0", vehiculeSelectionne.IdVehicule);
+                bd.CreerEntretien(description, freqKm, "-", kmNouvelleMaintenance, dateActuelle.ToString(), "0", vehiculeSelectionne.IdVehicule);
                 bd.maConnexion.Close();
                 UpdateCarnetContent();
                 UpdateGestionEntretiensContent();
@@ -314,7 +319,7 @@ namespace MotoCare
             if (frmAjoutEntretien.ShowDialog() == DialogResult.OK)
             {
                 bd.maConnexion.Open();
-                bd.CreerEntretien(frmAjoutEntretien.Description, frmAjoutEntretien.FreqKm, vehiculeSelectionne.KmReel, dateActuelle.ToString(), "0", vehiculeSelectionne.IdVehicule);
+                bd.CreerEntretien(frmAjoutEntretien.Description, frmAjoutEntretien.FreqKm, frmAjoutEntretien.KmPremierEntretien, "", "", "0", vehiculeSelectionne.IdVehicule);
                 bd.maConnexion.Close();
 
                 UpdateCarnetContent();
@@ -336,11 +341,11 @@ namespace MotoCare
 
                 if (dtgvGestionEntretiens.Columns[e.ColumnIndex].Name == "colModifierGestion")
                 {
-                    //FrmModifierTrajet frmModifierTrajet = new FrmModifierTrajet(depart, arrivee, distance, date);
-                    //if (frmModifierTrajet.ShowDialog() == DialogResult.OK)
-                    //{
-                    //    bd.MettreAJourTrajet(frmModifierTrajet.Depart, frmModifierTrajet.Arrivee, frmModifierTrajet.Distance, frmModifierTrajet.Date, vehiculeSelectionne.IdVehicule, idTrajet);
-                    //}
+                    FrmModifierEntretien frmModifierEntretien = new FrmModifierEntretien(description, freqKm);
+                    if (frmModifierEntretien.ShowDialog() == DialogResult.OK)
+                    {
+                        bd.MettreAJourEntretien(frmModifierEntretien.Description, frmModifierEntretien.FreqKm, idEntretien);
+                    }
                 }
                 else if (dtgvGestionEntretiens.Columns[e.ColumnIndex].Name == "colSupprimerGestion")
                 {
