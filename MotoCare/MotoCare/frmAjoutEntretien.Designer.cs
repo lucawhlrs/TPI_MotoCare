@@ -55,7 +55,7 @@
             // tbxFreqKm
             // 
             this.tbxFreqKm.Location = new System.Drawing.Point(162, 189);
-            this.tbxFreqKm.Margin = new System.Windows.Forms.Padding(1);
+            this.tbxFreqKm.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.tbxFreqKm.Name = "tbxFreqKm";
             this.tbxFreqKm.Size = new System.Drawing.Size(200, 20);
             this.tbxFreqKm.TabIndex = 46;
@@ -74,7 +74,7 @@
             // btnValider
             // 
             this.btnValider.Location = new System.Drawing.Point(329, 242);
-            this.btnValider.Margin = new System.Windows.Forms.Padding(1);
+            this.btnValider.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.btnValider.Name = "btnValider";
             this.btnValider.Size = new System.Drawing.Size(56, 23);
             this.btnValider.TabIndex = 49;
@@ -86,7 +86,7 @@
             // 
             this.btnAnnuler.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnAnnuler.Location = new System.Drawing.Point(10, 242);
-            this.btnAnnuler.Margin = new System.Windows.Forms.Padding(1);
+            this.btnAnnuler.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.btnAnnuler.Name = "btnAnnuler";
             this.btnAnnuler.Size = new System.Drawing.Size(56, 23);
             this.btnAnnuler.TabIndex = 50;
@@ -96,7 +96,7 @@
             // tbxDescription
             // 
             this.tbxDescription.Location = new System.Drawing.Point(162, 57);
-            this.tbxDescription.Margin = new System.Windows.Forms.Padding(1);
+            this.tbxDescription.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.tbxDescription.Multiline = true;
             this.tbxDescription.Name = "tbxDescription";
             this.tbxDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -126,7 +126,7 @@
             // tbxKmPremierEntretien
             // 
             this.tbxKmPremierEntretien.Location = new System.Drawing.Point(162, 147);
-            this.tbxKmPremierEntretien.Margin = new System.Windows.Forms.Padding(1);
+            this.tbxKmPremierEntretien.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.tbxKmPremierEntretien.Name = "tbxKmPremierEntretien";
             this.tbxKmPremierEntretien.Size = new System.Drawing.Size(200, 20);
             this.tbxKmPremierEntretien.TabIndex = 57;
@@ -178,7 +178,9 @@
             this.Controls.Add(this.tbxDescription);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "FrmAjoutEntretien";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmAjoutEntretien";
             this.ResumeLayout(false);
             this.PerformLayout();

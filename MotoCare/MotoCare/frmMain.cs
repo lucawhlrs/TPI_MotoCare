@@ -52,10 +52,8 @@ namespace MotoCare
                 PointLatLng location = new PointLatLng(Convert.ToDouble(pointInteret.Lat), Convert.ToDouble(pointInteret.Lng));
                 AjouterMarqueurCarte(location, overlayMarkers, GMarkerGoogleType.green_dot, pointInteret);
             }
-            //Clear la couche
+            //Supprimer et ajouter la couche pour rafraichir l'affichage
             gmcCarte.Overlays.Clear();
-
-            //Ajoute la couche
             gmcCarte.Overlays.Add(overlayMarkers);
         }
         private void AjouterMarqueurCarte(PointLatLng latLng, GMapOverlay overlayMarkers, GMarkerGoogleType style, PointInteret pointInteret)
@@ -151,17 +149,17 @@ namespace MotoCare
                 {
                     //C'est une répétition d'un entretien
                     prochaineMaitenance = Convert.ToInt32(entretien.KmDerniereMaintenance) + Convert.ToInt32(entretien.FreqKm) - Convert.ToInt32(vehiculeSelectionne.KmReel);
-                    dtgvCarnetEntretiens.Rows.Add(entretien.IdMaintenance, entretien.Fait, entretien.Description, entretien.DateDerniereMaintenance, entretien.KmDerniereMaintenance, entretien.FreqKm, prochaineMaitenance.ToString());
+                    dtgvCarnetEntretiens.Rows.Add(entretien.IdMaintenance, entretien.Fait, entretien.Description, entretien.DateDerniereMaintenance, entretien.KmDerniereMaintenance, entretien.FreqKm, prochaineMaitenance);
                 }
                 else
                 {
                     //C'est le tout premier entretien
                     prochaineMaitenance = Convert.ToInt32(entretien.KmPremiereMaintenance) - Convert.ToInt32(vehiculeSelectionne.KmReel);
-                    dtgvCarnetEntretiens.Rows.Add(entretien.IdMaintenance, entretien.Fait, entretien.Description, "", "", entretien.FreqKm, prochaineMaitenance.ToString());
+                    dtgvCarnetEntretiens.Rows.Add(entretien.IdMaintenance, entretien.Fait, entretien.Description, "", "", entretien.FreqKm, prochaineMaitenance);
                 }
             }
             bd.maConnexion.Close();
-
+            dtgvCarnetEntretiens.Sort(colProchaineMaintenance, ListSortDirection.Descending);
             //Détails d'affichage
             foreach (DataGridViewRow row in dtgvCarnetEntretiens.Rows)
             {
@@ -178,7 +176,7 @@ namespace MotoCare
                         row.DefaultCellStyle.ForeColor = Color.Orange;
                 }
             }
-            dtgvCarnetEntretiens.Sort(colProchaineMaintenance, ListSortDirection.Ascending);
+            //dtgvCarnetEntretiens.Sort(colProchaineMaintenance, ListSortDirection.Descending);
             //dtgvCarnetEntretiens.DataSource = bd.LireEntretiens(vehiculeSelectionne.IdVehicule);
         }
         public void UpdateGestionEntretiensContent()
@@ -247,6 +245,7 @@ namespace MotoCare
             {
                 bd.maConnexion.Open();
                 bd.SupprimerTrajetsVehicule(vehiculeSelectionne.IdVehicule);
+                bd.SupprimerEntretiensVehicule(vehiculeSelectionne.IdVehicule);
                 bd.SupprimerVehicule(vehiculeSelectionne);
                 bd.maConnexion.Close();
                 UpdateVehiculesAndCbxVehicules();
@@ -314,7 +313,6 @@ namespace MotoCare
                 UpdateGestionEntretiensContent();
             }
         }
-
         private void dtgvCarnetEntretiens_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridView data = (DataGridView)sender;
@@ -352,7 +350,6 @@ namespace MotoCare
                 UpdateGestionEntretiensContent();
             }
         }
-
         private void btnAjoutEntretien_Click(object sender, EventArgs e)
         {
             string dateMtn = DateTime.Now.ToString();
@@ -369,7 +366,6 @@ namespace MotoCare
                 UpdateGestionEntretiensContent();
             }
         }
-
         private void dtgvGestionEntretiens_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dtgvGestionEntretiens.Columns[e.ColumnIndex] is DataGridViewButtonColumn)
@@ -411,19 +407,12 @@ namespace MotoCare
                 UpdateGestionEntretiensContent();
             }
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnAjouterPointInteret_Click(object sender, EventArgs e)
         {
             nomPointInteret = tbxNomPointInteret.Text;
             visitePointInteret = cbxVisitePointInteret.SelectedItem.ToString();
             descriptionPointInteret = tbxDescriptionPointInteret.Text;
         }
-
         private void gmcCarte_OnMapClick(PointLatLng pointClick, MouseEventArgs e)
         {
             if (nomPointInteret != string.Empty || visitePointInteret != string.Empty || descriptionPointInteret != string.Empty)
@@ -444,9 +433,8 @@ namespace MotoCare
                 cbxVisitePointInteret.SelectedIndex = 0;
                 tbxDescriptionPointInteret.Text = "";
 
-                //Clear la couche
+                //Supprimer et ajouter la couche pour rafraichir l'affichage
                 gmcCarte.Overlays.Clear();
-                //Ajoute la couche
                 gmcCarte.Overlays.Add(overlayMarkers);
             }
         }

@@ -20,11 +20,10 @@ namespace MotoCare
         private string _kmInitial;
         private string _kmReel;
         private byte[] _photoEnBytes;
-
         public string Nom { get => tbxNom.Text; set => _nom = value; }
         public string Description { get => tbxDescription.Text; set => _description = value; }
         public string KmInitial { get => nudInitial.Value.ToString(); set => _kmInitial = value; }
-        public string KmReel { get => nudReel.Value.ToString(); set => _kmReel = value; }
+        public string KmReel { get => _kmReel; set => _kmReel = value; }//Ne change pas
         public byte[] PhotoEnBytes { get => _photoEnBytes; set => _photoEnBytes = value; }
 
         Image image;
@@ -35,7 +34,7 @@ namespace MotoCare
             tbxNom.Text = vehicule.Nom;
             tbxDescription.Text = vehicule.Description;
             nudInitial.Value = Convert.ToDecimal(vehicule.KmInitial);
-            nudReel.Value = Convert.ToDecimal(vehicule.KmReel);
+            KmReel = vehicule.KmReel;
             pcbPhoto.Image = vehicule.Photo;
 
             image = vehicule.Photo;

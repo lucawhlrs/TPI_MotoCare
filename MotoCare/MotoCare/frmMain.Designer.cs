@@ -28,39 +28,52 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.undoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.redoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.cutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pasteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.selectAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.tcMenu = new System.Windows.Forms.TabControl();
             this.tpTrajets = new System.Windows.Forms.TabPage();
             this.btnAjouterTrajet = new System.Windows.Forms.Button();
             this.dtgvTrajets = new System.Windows.Forms.DataGridView();
+            this.colDepart = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colArrivee = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDistance = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colModifier = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.colSupprimer = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tpCarnet = new System.Windows.Forms.TabPage();
             this.dtgvCarnetEntretiens = new System.Windows.Forms.DataGridView();
             this.tpGestion = new System.Windows.Forms.TabPage();
+            this.dtgvGestionEntretiens = new System.Windows.Forms.DataGridView();
+            this.colIdEntretienGestion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colFaitGestion = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.colDescriptionGestion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colKmLorsEntretienGestion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colFreqKmGestion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colModifierGestion = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.colSupprimerGestion = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.btnAjoutEntretien = new System.Windows.Forms.Button();
             this.tpInterets = new System.Windows.Forms.TabPage();
+            this.lblNomPointInteret = new System.Windows.Forms.Label();
+            this.tbxNomPointInteret = new System.Windows.Forms.TextBox();
+            this.cbxVisitePointInteret = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.btnAjouterPointInteret = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.tbxDescriptionPointInteret = new System.Windows.Forms.TextBox();
             this.gmcCarte = new GMap.NET.WindowsForms.GMapControl();
             this.gbVehicule = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.tbxKmReel = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tbxKmInitial = new System.Windows.Forms.TextBox();
             this.btnModifierVehicule = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -69,19 +82,6 @@
             this.tbxDescription = new System.Windows.Forms.TextBox();
             this.pcbPhoto = new System.Windows.Forms.PictureBox();
             this.cbxVehicules = new System.Windows.Forms.ComboBox();
-            this.tbxKmInitial = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.tbxKmReel = new System.Windows.Forms.TextBox();
-            this.colDepart = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colArrivee = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDistance = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colModifier = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.colSupprimer = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.btnAjoutEntretien = new System.Windows.Forms.Button();
-            this.dtgvGestionEntretiens = new System.Windows.Forms.DataGridView();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.colIdEntretien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colFait = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.colDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -89,154 +89,17 @@
             this.colKmDerniereMaintenance = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colFrequence = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colProchaineMaintenance = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colIdEntretienGestion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colFaitGestion = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.colDescriptionGestion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colKmLorsEntretienGestion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colFreqKmGestion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colModifierGestion = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.colSupprimerGestion = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.label8 = new System.Windows.Forms.Label();
-            this.btnAjouterPointInteret = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.tbxDescriptionPointInteret = new System.Windows.Forms.TextBox();
-            this.cbxVisitePointInteret = new System.Windows.Forms.ComboBox();
-            this.tbxNomPointInteret = new System.Windows.Forms.TextBox();
-            this.lblNomPointInteret = new System.Windows.Forms.Label();
-            this.menuStrip1.SuspendLayout();
             this.tcMenu.SuspendLayout();
             this.tpTrajets.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvTrajets)).BeginInit();
             this.tpCarnet.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvCarnetEntretiens)).BeginInit();
             this.tpGestion.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvGestionEntretiens)).BeginInit();
             this.tpInterets.SuspendLayout();
             this.gbVehicule.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPhoto)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvGestionEntretiens)).BeginInit();
             this.SuspendLayout();
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(40, 40);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem,
-            this.editToolStripMenuItem,
-            this.helpToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(937, 24);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // fileToolStripMenuItem
-            // 
-            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1,
-            this.toolStripSeparator2,
-            this.exitToolStripMenuItem});
-            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.fileToolStripMenuItem.Text = "&File";
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
-            // 
-            // exitToolStripMenuItem
-            // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.exitToolStripMenuItem.Text = "E&xit";
-            // 
-            // editToolStripMenuItem
-            // 
-            this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.undoToolStripMenuItem,
-            this.redoToolStripMenuItem,
-            this.toolStripSeparator3,
-            this.cutToolStripMenuItem,
-            this.copyToolStripMenuItem,
-            this.pasteToolStripMenuItem,
-            this.toolStripSeparator4,
-            this.selectAllToolStripMenuItem});
-            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
-            this.editToolStripMenuItem.Text = "&Edit";
-            // 
-            // undoToolStripMenuItem
-            // 
-            this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
-            this.undoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-            this.undoToolStripMenuItem.Size = new System.Drawing.Size(204, 46);
-            this.undoToolStripMenuItem.Text = "&Undo";
-            // 
-            // redoToolStripMenuItem
-            // 
-            this.redoToolStripMenuItem.Name = "redoToolStripMenuItem";
-            this.redoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
-            this.redoToolStripMenuItem.Size = new System.Drawing.Size(204, 46);
-            this.redoToolStripMenuItem.Text = "&Redo";
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(201, 6);
-            // 
-            // cutToolStripMenuItem
-            // 
-            this.cutToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("cutToolStripMenuItem.Image")));
-            this.cutToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.cutToolStripMenuItem.Name = "cutToolStripMenuItem";
-            this.cutToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
-            this.cutToolStripMenuItem.Size = new System.Drawing.Size(204, 46);
-            this.cutToolStripMenuItem.Text = "Cu&t";
-            // 
-            // copyToolStripMenuItem
-            // 
-            this.copyToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("copyToolStripMenuItem.Image")));
-            this.copyToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
-            this.copyToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
-            this.copyToolStripMenuItem.Size = new System.Drawing.Size(204, 46);
-            this.copyToolStripMenuItem.Text = "&Copy";
-            // 
-            // pasteToolStripMenuItem
-            // 
-            this.pasteToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("pasteToolStripMenuItem.Image")));
-            this.pasteToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.pasteToolStripMenuItem.Name = "pasteToolStripMenuItem";
-            this.pasteToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
-            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(204, 46);
-            this.pasteToolStripMenuItem.Text = "&Paste";
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(201, 6);
-            // 
-            // selectAllToolStripMenuItem
-            // 
-            this.selectAllToolStripMenuItem.Name = "selectAllToolStripMenuItem";
-            this.selectAllToolStripMenuItem.Size = new System.Drawing.Size(204, 46);
-            this.selectAllToolStripMenuItem.Text = "Select &All";
-            // 
-            // helpToolStripMenuItem
-            // 
-            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aboutToolStripMenuItem});
-            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.helpToolStripMenuItem.Text = "&Help";
-            // 
-            // aboutToolStripMenuItem
-            // 
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.aboutToolStripMenuItem.Text = "&About...";
             // 
             // tcMenu
             // 
@@ -244,10 +107,10 @@
             this.tcMenu.Controls.Add(this.tpCarnet);
             this.tcMenu.Controls.Add(this.tpGestion);
             this.tcMenu.Controls.Add(this.tpInterets);
-            this.tcMenu.Location = new System.Drawing.Point(4, 252);
+            this.tcMenu.Location = new System.Drawing.Point(4, 225);
             this.tcMenu.Name = "tcMenu";
             this.tcMenu.SelectedIndex = 0;
-            this.tcMenu.Size = new System.Drawing.Size(933, 392);
+            this.tcMenu.Size = new System.Drawing.Size(933, 393);
             this.tcMenu.TabIndex = 1;
             // 
             // tpTrajets
@@ -257,7 +120,7 @@
             this.tpTrajets.Location = new System.Drawing.Point(4, 22);
             this.tpTrajets.Name = "tpTrajets";
             this.tpTrajets.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tpTrajets.Size = new System.Drawing.Size(925, 366);
+            this.tpTrajets.Size = new System.Drawing.Size(925, 367);
             this.tpTrajets.TabIndex = 0;
             this.tpTrajets.Text = "Saisie des trajets";
             this.tpTrajets.UseVisualStyleBackColor = true;
@@ -296,13 +159,81 @@
             this.dtgvTrajets.TabIndex = 0;
             this.dtgvTrajets.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvTrajets_CellContentClick);
             // 
+            // colDepart
+            // 
+            this.colDepart.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colDepart.FillWeight = 41.69231F;
+            this.colDepart.HeaderText = "Départ";
+            this.colDepart.MinimumWidth = 12;
+            this.colDepart.Name = "colDepart";
+            this.colDepart.ReadOnly = true;
+            // 
+            // colArrivee
+            // 
+            this.colArrivee.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colArrivee.FillWeight = 41.69231F;
+            this.colArrivee.HeaderText = "Arrivée";
+            this.colArrivee.MinimumWidth = 12;
+            this.colArrivee.Name = "colArrivee";
+            this.colArrivee.ReadOnly = true;
+            // 
+            // colDistance
+            // 
+            this.colDistance.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colDistance.FillWeight = 41.69231F;
+            this.colDistance.HeaderText = "Distance(Km)";
+            this.colDistance.MinimumWidth = 12;
+            this.colDistance.Name = "colDistance";
+            this.colDistance.ReadOnly = true;
+            // 
+            // colDate
+            // 
+            this.colDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle1.Format = "D";
+            dataGridViewCellStyle1.NullValue = null;
+            this.colDate.DefaultCellStyle = dataGridViewCellStyle1;
+            this.colDate.FillWeight = 41.69231F;
+            this.colDate.HeaderText = "Date";
+            this.colDate.MinimumWidth = 12;
+            this.colDate.Name = "colDate";
+            this.colDate.ReadOnly = true;
+            // 
+            // colModifier
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DodgerBlue;
+            this.colModifier.DefaultCellStyle = dataGridViewCellStyle2;
+            this.colModifier.FillWeight = 204.8044F;
+            this.colModifier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.colModifier.HeaderText = "Modifier";
+            this.colModifier.MinimumWidth = 12;
+            this.colModifier.Name = "colModifier";
+            this.colModifier.ReadOnly = true;
+            this.colModifier.Text = "Modif.";
+            this.colModifier.Width = 70;
+            // 
+            // colSupprimer
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.IndianRed;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colSupprimer.DefaultCellStyle = dataGridViewCellStyle3;
+            this.colSupprimer.FillWeight = 228.4264F;
+            this.colSupprimer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.colSupprimer.HeaderText = "Supprimer";
+            this.colSupprimer.MinimumWidth = 12;
+            this.colSupprimer.Name = "colSupprimer";
+            this.colSupprimer.ReadOnly = true;
+            this.colSupprimer.Text = "Test de texte";
+            this.colSupprimer.Width = 70;
+            // 
             // tpCarnet
             // 
             this.tpCarnet.Controls.Add(this.dtgvCarnetEntretiens);
             this.tpCarnet.Location = new System.Drawing.Point(4, 22);
             this.tpCarnet.Name = "tpCarnet";
             this.tpCarnet.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tpCarnet.Size = new System.Drawing.Size(925, 366);
+            this.tpCarnet.Size = new System.Drawing.Size(925, 367);
             this.tpCarnet.TabIndex = 1;
             this.tpCarnet.Text = "Carnet d\'Entretiens";
             this.tpCarnet.UseVisualStyleBackColor = true;
@@ -326,7 +257,7 @@
             this.dtgvCarnetEntretiens.ReadOnly = true;
             this.dtgvCarnetEntretiens.RowHeadersVisible = false;
             this.dtgvCarnetEntretiens.RowHeadersWidth = 102;
-            this.dtgvCarnetEntretiens.Size = new System.Drawing.Size(919, 360);
+            this.dtgvCarnetEntretiens.Size = new System.Drawing.Size(919, 361);
             this.dtgvCarnetEntretiens.TabIndex = 1;
             this.dtgvCarnetEntretiens.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvCarnetEntretiens_CellContentClick);
             // 
@@ -337,10 +268,117 @@
             this.tpGestion.Location = new System.Drawing.Point(4, 22);
             this.tpGestion.Name = "tpGestion";
             this.tpGestion.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tpGestion.Size = new System.Drawing.Size(925, 366);
+            this.tpGestion.Size = new System.Drawing.Size(925, 367);
             this.tpGestion.TabIndex = 2;
             this.tpGestion.Text = "Gestion des Entretiens";
             this.tpGestion.UseVisualStyleBackColor = true;
+            // 
+            // dtgvGestionEntretiens
+            // 
+            this.dtgvGestionEntretiens.AllowUserToAddRows = false;
+            this.dtgvGestionEntretiens.AllowUserToDeleteRows = false;
+            this.dtgvGestionEntretiens.AllowUserToResizeRows = false;
+            this.dtgvGestionEntretiens.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.dtgvGestionEntretiens.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvGestionEntretiens.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colIdEntretienGestion,
+            this.colFaitGestion,
+            this.colDescriptionGestion,
+            this.colKmLorsEntretienGestion,
+            this.colFreqKmGestion,
+            this.colModifierGestion,
+            this.colSupprimerGestion});
+            this.dtgvGestionEntretiens.Location = new System.Drawing.Point(1, 35);
+            this.dtgvGestionEntretiens.Name = "dtgvGestionEntretiens";
+            this.dtgvGestionEntretiens.ReadOnly = true;
+            this.dtgvGestionEntretiens.RowHeadersVisible = false;
+            this.dtgvGestionEntretiens.RowHeadersWidth = 102;
+            this.dtgvGestionEntretiens.Size = new System.Drawing.Size(920, 328);
+            this.dtgvGestionEntretiens.TabIndex = 3;
+            this.dtgvGestionEntretiens.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvGestionEntretiens_CellContentClick);
+            // 
+            // colIdEntretienGestion
+            // 
+            this.colIdEntretienGestion.HeaderText = "Id";
+            this.colIdEntretienGestion.MinimumWidth = 12;
+            this.colIdEntretienGestion.Name = "colIdEntretienGestion";
+            this.colIdEntretienGestion.ReadOnly = true;
+            this.colIdEntretienGestion.Visible = false;
+            this.colIdEntretienGestion.Width = 250;
+            // 
+            // colFaitGestion
+            // 
+            this.colFaitGestion.HeaderText = "Effectué";
+            this.colFaitGestion.MinimumWidth = 12;
+            this.colFaitGestion.Name = "colFaitGestion";
+            this.colFaitGestion.ReadOnly = true;
+            this.colFaitGestion.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colFaitGestion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.colFaitGestion.Width = 50;
+            // 
+            // colDescriptionGestion
+            // 
+            this.colDescriptionGestion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colDescriptionGestion.HeaderText = "Description";
+            this.colDescriptionGestion.MinimumWidth = 12;
+            this.colDescriptionGestion.Name = "colDescriptionGestion";
+            this.colDescriptionGestion.ReadOnly = true;
+            // 
+            // colKmLorsEntretienGestion
+            // 
+            this.colKmLorsEntretienGestion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colKmLorsEntretienGestion.HeaderText = "Km lors de l\'entretien";
+            this.colKmLorsEntretienGestion.MinimumWidth = 12;
+            this.colKmLorsEntretienGestion.Name = "colKmLorsEntretienGestion";
+            this.colKmLorsEntretienGestion.ReadOnly = true;
+            // 
+            // colFreqKmGestion
+            // 
+            this.colFreqKmGestion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colFreqKmGestion.HeaderText = "Fréquence";
+            this.colFreqKmGestion.MinimumWidth = 12;
+            this.colFreqKmGestion.Name = "colFreqKmGestion";
+            this.colFreqKmGestion.ReadOnly = true;
+            // 
+            // colModifierGestion
+            // 
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.DodgerBlue;
+            this.colModifierGestion.DefaultCellStyle = dataGridViewCellStyle6;
+            this.colModifierGestion.FillWeight = 204.8044F;
+            this.colModifierGestion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.colModifierGestion.HeaderText = "Modifier";
+            this.colModifierGestion.MinimumWidth = 12;
+            this.colModifierGestion.Name = "colModifierGestion";
+            this.colModifierGestion.ReadOnly = true;
+            this.colModifierGestion.Text = "Modif.";
+            this.colModifierGestion.Width = 70;
+            // 
+            // colSupprimerGestion
+            // 
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.IndianRed;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colSupprimerGestion.DefaultCellStyle = dataGridViewCellStyle7;
+            this.colSupprimerGestion.FillWeight = 228.4264F;
+            this.colSupprimerGestion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.colSupprimerGestion.HeaderText = "Supprimer";
+            this.colSupprimerGestion.MinimumWidth = 12;
+            this.colSupprimerGestion.Name = "colSupprimerGestion";
+            this.colSupprimerGestion.ReadOnly = true;
+            this.colSupprimerGestion.Text = "Test de texte";
+            this.colSupprimerGestion.Width = 70;
+            // 
+            // btnAjoutEntretien
+            // 
+            this.btnAjoutEntretien.Location = new System.Drawing.Point(5, 4);
+            this.btnAjoutEntretien.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.btnAjoutEntretien.Name = "btnAjoutEntretien";
+            this.btnAjoutEntretien.Size = new System.Drawing.Size(914, 28);
+            this.btnAjoutEntretien.TabIndex = 2;
+            this.btnAjoutEntretien.Text = "Ajouter un nouvel Entretien";
+            this.btnAjoutEntretien.UseVisualStyleBackColor = true;
+            this.btnAjoutEntretien.Click += new System.EventHandler(this.btnAjoutEntretien_Click);
             // 
             // tpInterets
             // 
@@ -357,10 +395,101 @@
             this.tpInterets.Location = new System.Drawing.Point(4, 22);
             this.tpInterets.Name = "tpInterets";
             this.tpInterets.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tpInterets.Size = new System.Drawing.Size(925, 366);
+            this.tpInterets.Size = new System.Drawing.Size(925, 367);
             this.tpInterets.TabIndex = 3;
             this.tpInterets.Text = "Points d\'intérêts";
             this.tpInterets.UseVisualStyleBackColor = true;
+            // 
+            // lblNomPointInteret
+            // 
+            this.lblNomPointInteret.AutoSize = true;
+            this.lblNomPointInteret.Location = new System.Drawing.Point(613, 51);
+            this.lblNomPointInteret.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.lblNomPointInteret.Name = "lblNomPointInteret";
+            this.lblNomPointInteret.Size = new System.Drawing.Size(32, 13);
+            this.lblNomPointInteret.TabIndex = 33;
+            this.lblNomPointInteret.Text = "Nom:";
+            // 
+            // tbxNomPointInteret
+            // 
+            this.tbxNomPointInteret.Location = new System.Drawing.Point(750, 48);
+            this.tbxNomPointInteret.Name = "tbxNomPointInteret";
+            this.tbxNomPointInteret.Size = new System.Drawing.Size(154, 20);
+            this.tbxNomPointInteret.TabIndex = 32;
+            // 
+            // cbxVisitePointInteret
+            // 
+            this.cbxVisitePointInteret.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxVisitePointInteret.FormattingEnabled = true;
+            this.cbxVisitePointInteret.Items.AddRange(new object[] {
+            "Oui",
+            "Non"});
+            this.cbxVisitePointInteret.Location = new System.Drawing.Point(750, 74);
+            this.cbxVisitePointInteret.Name = "cbxVisitePointInteret";
+            this.cbxVisitePointInteret.Size = new System.Drawing.Size(154, 21);
+            this.cbxVisitePointInteret.TabIndex = 31;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(613, 258);
+            this.label8.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(229, 26);
+            this.label8.TabIndex = 30;
+            this.label8.Text = "Après avoir cliqué sur \"Ajouter\", sélectionner\r\nl\'endroit du restaurant sur la ca" +
+    "rte pour l\'ajouter.";
+            // 
+            // btnAjouterPointInteret
+            // 
+            this.btnAjouterPointInteret.Location = new System.Drawing.Point(750, 212);
+            this.btnAjouterPointInteret.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.btnAjouterPointInteret.Name = "btnAjouterPointInteret";
+            this.btnAjouterPointInteret.Size = new System.Drawing.Size(154, 28);
+            this.btnAjouterPointInteret.TabIndex = 29;
+            this.btnAjouterPointInteret.Text = "Ajouter";
+            this.btnAjouterPointInteret.UseVisualStyleBackColor = true;
+            this.btnAjouterPointInteret.Click += new System.EventHandler(this.btnAjouterPointInteret_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(614, 10);
+            this.label7.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(165, 18);
+            this.label7.TabIndex = 28;
+            this.label7.Text = "Ajouter un point d\'intérêt";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(613, 102);
+            this.label6.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(63, 13);
+            this.label6.TabIndex = 27;
+            this.label6.Text = "Description:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(613, 77);
+            this.label5.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(86, 13);
+            this.label5.TabIndex = 26;
+            this.label5.Text = "Lieu déjà visité ?";
+            // 
+            // tbxDescriptionPointInteret
+            // 
+            this.tbxDescriptionPointInteret.Location = new System.Drawing.Point(750, 99);
+            this.tbxDescriptionPointInteret.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.tbxDescriptionPointInteret.Multiline = true;
+            this.tbxDescriptionPointInteret.Name = "tbxDescriptionPointInteret";
+            this.tbxDescriptionPointInteret.Size = new System.Drawing.Size(154, 101);
+            this.tbxDescriptionPointInteret.TabIndex = 21;
             // 
             // gmcCarte
             // 
@@ -385,7 +514,7 @@
             this.gmcCarte.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
             this.gmcCarte.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
             this.gmcCarte.ShowTileGridLines = false;
-            this.gmcCarte.Size = new System.Drawing.Size(591, 359);
+            this.gmcCarte.Size = new System.Drawing.Size(591, 364);
             this.gmcCarte.TabIndex = 0;
             this.gmcCarte.Zoom = 10D;
             this.gmcCarte.OnMapClick += new GMap.NET.WindowsForms.MapClick(this.gmcCarte_OnMapClick);
@@ -405,12 +534,50 @@
             this.gbVehicule.Controls.Add(this.tbxDescription);
             this.gbVehicule.Controls.Add(this.pcbPhoto);
             this.gbVehicule.Controls.Add(this.cbxVehicules);
-            this.gbVehicule.Location = new System.Drawing.Point(4, 35);
+            this.gbVehicule.Location = new System.Drawing.Point(4, 11);
             this.gbVehicule.Name = "gbVehicule";
             this.gbVehicule.Size = new System.Drawing.Size(929, 202);
             this.gbVehicule.TabIndex = 2;
             this.gbVehicule.TabStop = false;
             this.gbVehicule.Text = "Véhicules";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(248, 62);
+            this.label4.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(144, 13);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "Nombre de kilomètres actuel:";
+            // 
+            // tbxKmReel
+            // 
+            this.tbxKmReel.Location = new System.Drawing.Point(242, 81);
+            this.tbxKmReel.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.tbxKmReel.Name = "tbxKmReel";
+            this.tbxKmReel.ReadOnly = true;
+            this.tbxKmReel.Size = new System.Drawing.Size(224, 20);
+            this.tbxKmReel.TabIndex = 10;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(248, 17);
+            this.label3.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(180, 13);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Nombre de kilomètres lors de l\'achat:";
+            // 
+            // tbxKmInitial
+            // 
+            this.tbxKmInitial.Location = new System.Drawing.Point(242, 36);
+            this.tbxKmInitial.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.tbxKmInitial.Name = "tbxKmInitial";
+            this.tbxKmInitial.ReadOnly = true;
+            this.tbxKmInitial.Size = new System.Drawing.Size(224, 20);
+            this.tbxKmInitial.TabIndex = 8;
             // 
             // btnModifierVehicule
             // 
@@ -498,163 +665,19 @@
             this.cbxVehicules.TabIndex = 0;
             this.cbxVehicules.SelectedIndexChanged += new System.EventHandler(this.cbxVehicules_SelectedIndexChanged);
             // 
-            // tbxKmInitial
-            // 
-            this.tbxKmInitial.Location = new System.Drawing.Point(242, 36);
-            this.tbxKmInitial.Margin = new System.Windows.Forms.Padding(1);
-            this.tbxKmInitial.Name = "tbxKmInitial";
-            this.tbxKmInitial.ReadOnly = true;
-            this.tbxKmInitial.Size = new System.Drawing.Size(224, 20);
-            this.tbxKmInitial.TabIndex = 8;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(248, 17);
-            this.label3.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(180, 13);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "Nombre de kilomètres lors de l\'achat:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(248, 62);
-            this.label4.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(144, 13);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "Nombre de kilomètres actuel:";
-            // 
-            // tbxKmReel
-            // 
-            this.tbxKmReel.Location = new System.Drawing.Point(242, 81);
-            this.tbxKmReel.Margin = new System.Windows.Forms.Padding(1);
-            this.tbxKmReel.Name = "tbxKmReel";
-            this.tbxKmReel.ReadOnly = true;
-            this.tbxKmReel.Size = new System.Drawing.Size(224, 20);
-            this.tbxKmReel.TabIndex = 10;
-            // 
-            // colDepart
-            // 
-            this.colDepart.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colDepart.FillWeight = 41.69231F;
-            this.colDepart.HeaderText = "Départ";
-            this.colDepart.MinimumWidth = 12;
-            this.colDepart.Name = "colDepart";
-            this.colDepart.ReadOnly = true;
-            // 
-            // colArrivee
-            // 
-            this.colArrivee.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colArrivee.FillWeight = 41.69231F;
-            this.colArrivee.HeaderText = "Arrivée";
-            this.colArrivee.MinimumWidth = 12;
-            this.colArrivee.Name = "colArrivee";
-            this.colArrivee.ReadOnly = true;
-            // 
-            // colDistance
-            // 
-            this.colDistance.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colDistance.FillWeight = 41.69231F;
-            this.colDistance.HeaderText = "Distance(Km)";
-            this.colDistance.MinimumWidth = 12;
-            this.colDistance.Name = "colDistance";
-            this.colDistance.ReadOnly = true;
-            // 
-            // colDate
-            // 
-            this.colDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle1.Format = "D";
-            dataGridViewCellStyle1.NullValue = null;
-            this.colDate.DefaultCellStyle = dataGridViewCellStyle1;
-            this.colDate.FillWeight = 41.69231F;
-            this.colDate.HeaderText = "Date";
-            this.colDate.MinimumWidth = 12;
-            this.colDate.Name = "colDate";
-            this.colDate.ReadOnly = true;
-            // 
-            // colModifier
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DodgerBlue;
-            this.colModifier.DefaultCellStyle = dataGridViewCellStyle2;
-            this.colModifier.FillWeight = 204.8044F;
-            this.colModifier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.colModifier.HeaderText = "Modifier";
-            this.colModifier.MinimumWidth = 12;
-            this.colModifier.Name = "colModifier";
-            this.colModifier.ReadOnly = true;
-            this.colModifier.Text = "Modif.";
-            this.colModifier.Width = 70;
-            // 
-            // colSupprimer
-            // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.IndianRed;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colSupprimer.DefaultCellStyle = dataGridViewCellStyle3;
-            this.colSupprimer.FillWeight = 228.4264F;
-            this.colSupprimer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.colSupprimer.HeaderText = "Supprimer";
-            this.colSupprimer.MinimumWidth = 12;
-            this.colSupprimer.Name = "colSupprimer";
-            this.colSupprimer.ReadOnly = true;
-            this.colSupprimer.Text = "Test de texte";
-            this.colSupprimer.Width = 70;
-            // 
-            // btnAjoutEntretien
-            // 
-            this.btnAjoutEntretien.Location = new System.Drawing.Point(5, 4);
-            this.btnAjoutEntretien.Margin = new System.Windows.Forms.Padding(1);
-            this.btnAjoutEntretien.Name = "btnAjoutEntretien";
-            this.btnAjoutEntretien.Size = new System.Drawing.Size(914, 28);
-            this.btnAjoutEntretien.TabIndex = 2;
-            this.btnAjoutEntretien.Text = "Ajouter un nouvel Entretien";
-            this.btnAjoutEntretien.UseVisualStyleBackColor = true;
-            this.btnAjoutEntretien.Click += new System.EventHandler(this.btnAjoutEntretien_Click);
-            // 
-            // dtgvGestionEntretiens
-            // 
-            this.dtgvGestionEntretiens.AllowUserToAddRows = false;
-            this.dtgvGestionEntretiens.AllowUserToDeleteRows = false;
-            this.dtgvGestionEntretiens.AllowUserToResizeRows = false;
-            this.dtgvGestionEntretiens.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            this.dtgvGestionEntretiens.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvGestionEntretiens.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colIdEntretienGestion,
-            this.colFaitGestion,
-            this.colDescriptionGestion,
-            this.colKmLorsEntretienGestion,
-            this.colFreqKmGestion,
-            this.colModifierGestion,
-            this.colSupprimerGestion});
-            this.dtgvGestionEntretiens.Location = new System.Drawing.Point(1, 35);
-            this.dtgvGestionEntretiens.Name = "dtgvGestionEntretiens";
-            this.dtgvGestionEntretiens.ReadOnly = true;
-            this.dtgvGestionEntretiens.RowHeadersVisible = false;
-            this.dtgvGestionEntretiens.RowHeadersWidth = 102;
-            this.dtgvGestionEntretiens.Size = new System.Drawing.Size(920, 328);
-            this.dtgvGestionEntretiens.TabIndex = 3;
-            this.dtgvGestionEntretiens.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvGestionEntretiens_CellContentClick);
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.toolStripMenuItem1.Text = "toolStripMenuItem1";
-            // 
             // colIdEntretien
             // 
             this.colIdEntretien.HeaderText = "Id";
+            this.colIdEntretien.MinimumWidth = 12;
             this.colIdEntretien.Name = "colIdEntretien";
             this.colIdEntretien.ReadOnly = true;
             this.colIdEntretien.Visible = false;
+            this.colIdEntretien.Width = 250;
             // 
             // colFait
             // 
             this.colFait.HeaderText = "Effectué";
+            this.colFait.MinimumWidth = 12;
             this.colFait.Name = "colFait";
             this.colFait.ReadOnly = true;
             this.colFait.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -665,6 +688,7 @@
             // 
             this.colDescription.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.colDescription.HeaderText = "Description";
+            this.colDescription.MinimumWidth = 12;
             this.colDescription.Name = "colDescription";
             this.colDescription.ReadOnly = true;
             // 
@@ -675,6 +699,7 @@
             dataGridViewCellStyle4.NullValue = null;
             this.colDateDerniereMaintenance.DefaultCellStyle = dataGridViewCellStyle4;
             this.colDateDerniereMaintenance.HeaderText = "Date Dernière Maintenance";
+            this.colDateDerniereMaintenance.MinimumWidth = 12;
             this.colDateDerniereMaintenance.Name = "colDateDerniereMaintenance";
             this.colDateDerniereMaintenance.ReadOnly = true;
             // 
@@ -682,6 +707,7 @@
             // 
             this.colKmDerniereMaintenance.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.colKmDerniereMaintenance.HeaderText = "Km Dernière Maintenance";
+            this.colKmDerniereMaintenance.MinimumWidth = 12;
             this.colKmDerniereMaintenance.Name = "colKmDerniereMaintenance";
             this.colKmDerniereMaintenance.ReadOnly = true;
             // 
@@ -689,6 +715,7 @@
             // 
             this.colFrequence.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.colFrequence.HeaderText = "Fréquence";
+            this.colFrequence.MinimumWidth = 12;
             this.colFrequence.Name = "colFrequence";
             this.colFrequence.ReadOnly = true;
             // 
@@ -696,216 +723,43 @@
             // 
             this.colProchaineMaintenance.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.Format = "N0";
+            dataGridViewCellStyle5.NullValue = null;
             this.colProchaineMaintenance.DefaultCellStyle = dataGridViewCellStyle5;
             this.colProchaineMaintenance.HeaderText = "Prochaine Maintenance dans (km):";
+            this.colProchaineMaintenance.MinimumWidth = 12;
             this.colProchaineMaintenance.Name = "colProchaineMaintenance";
             this.colProchaineMaintenance.ReadOnly = true;
-            // 
-            // colIdEntretienGestion
-            // 
-            this.colIdEntretienGestion.HeaderText = "Id";
-            this.colIdEntretienGestion.Name = "colIdEntretienGestion";
-            this.colIdEntretienGestion.ReadOnly = true;
-            this.colIdEntretienGestion.Visible = false;
-            // 
-            // colFaitGestion
-            // 
-            this.colFaitGestion.HeaderText = "Effectué";
-            this.colFaitGestion.Name = "colFaitGestion";
-            this.colFaitGestion.ReadOnly = true;
-            this.colFaitGestion.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colFaitGestion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.colFaitGestion.Width = 50;
-            // 
-            // colDescriptionGestion
-            // 
-            this.colDescriptionGestion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colDescriptionGestion.HeaderText = "Description";
-            this.colDescriptionGestion.Name = "colDescriptionGestion";
-            this.colDescriptionGestion.ReadOnly = true;
-            // 
-            // colKmLorsEntretienGestion
-            // 
-            this.colKmLorsEntretienGestion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colKmLorsEntretienGestion.HeaderText = "Km lors de l\'entretien";
-            this.colKmLorsEntretienGestion.Name = "colKmLorsEntretienGestion";
-            this.colKmLorsEntretienGestion.ReadOnly = true;
-            // 
-            // colFreqKmGestion
-            // 
-            this.colFreqKmGestion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colFreqKmGestion.HeaderText = "Fréquence";
-            this.colFreqKmGestion.Name = "colFreqKmGestion";
-            this.colFreqKmGestion.ReadOnly = true;
-            // 
-            // colModifierGestion
-            // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.DodgerBlue;
-            this.colModifierGestion.DefaultCellStyle = dataGridViewCellStyle6;
-            this.colModifierGestion.FillWeight = 204.8044F;
-            this.colModifierGestion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.colModifierGestion.HeaderText = "Modifier";
-            this.colModifierGestion.MinimumWidth = 12;
-            this.colModifierGestion.Name = "colModifierGestion";
-            this.colModifierGestion.ReadOnly = true;
-            this.colModifierGestion.Text = "Modif.";
-            this.colModifierGestion.Width = 70;
-            // 
-            // colSupprimerGestion
-            // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.IndianRed;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colSupprimerGestion.DefaultCellStyle = dataGridViewCellStyle7;
-            this.colSupprimerGestion.FillWeight = 228.4264F;
-            this.colSupprimerGestion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.colSupprimerGestion.HeaderText = "Supprimer";
-            this.colSupprimerGestion.MinimumWidth = 12;
-            this.colSupprimerGestion.Name = "colSupprimerGestion";
-            this.colSupprimerGestion.ReadOnly = true;
-            this.colSupprimerGestion.Text = "Test de texte";
-            this.colSupprimerGestion.Width = 70;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(613, 258);
-            this.label8.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(229, 26);
-            this.label8.TabIndex = 30;
-            this.label8.Text = "Après avoir cliqué sur \"Ajouter\", sélectionner\r\nl\'endroit du restaurant sur la ca" +
-    "rte pour l\'ajouter.";
-            // 
-            // btnAjouterPointInteret
-            // 
-            this.btnAjouterPointInteret.Location = new System.Drawing.Point(750, 212);
-            this.btnAjouterPointInteret.Margin = new System.Windows.Forms.Padding(1);
-            this.btnAjouterPointInteret.Name = "btnAjouterPointInteret";
-            this.btnAjouterPointInteret.Size = new System.Drawing.Size(154, 28);
-            this.btnAjouterPointInteret.TabIndex = 29;
-            this.btnAjouterPointInteret.Text = "Ajouter";
-            this.btnAjouterPointInteret.UseVisualStyleBackColor = true;
-            this.btnAjouterPointInteret.Click += new System.EventHandler(this.btnAjouterPointInteret_Click);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(614, 10);
-            this.label7.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(165, 18);
-            this.label7.TabIndex = 28;
-            this.label7.Text = "Ajouter un point d\'intérêt";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(613, 102);
-            this.label6.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(63, 13);
-            this.label6.TabIndex = 27;
-            this.label6.Text = "Description:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(613, 77);
-            this.label5.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(86, 13);
-            this.label5.TabIndex = 26;
-            this.label5.Text = "Lieu déjà visité ?";
-            // 
-            // tbxDescriptionPointInteret
-            // 
-            this.tbxDescriptionPointInteret.Location = new System.Drawing.Point(750, 99);
-            this.tbxDescriptionPointInteret.Margin = new System.Windows.Forms.Padding(1);
-            this.tbxDescriptionPointInteret.Multiline = true;
-            this.tbxDescriptionPointInteret.Name = "tbxDescriptionPointInteret";
-            this.tbxDescriptionPointInteret.Size = new System.Drawing.Size(154, 101);
-            this.tbxDescriptionPointInteret.TabIndex = 21;
-            // 
-            // cbxVisitePointInteret
-            // 
-            this.cbxVisitePointInteret.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxVisitePointInteret.FormattingEnabled = true;
-            this.cbxVisitePointInteret.Items.AddRange(new object[] {
-            "Oui",
-            "Non"});
-            this.cbxVisitePointInteret.Location = new System.Drawing.Point(750, 74);
-            this.cbxVisitePointInteret.Name = "cbxVisitePointInteret";
-            this.cbxVisitePointInteret.Size = new System.Drawing.Size(154, 21);
-            this.cbxVisitePointInteret.TabIndex = 31;
-            // 
-            // tbxNomPointInteret
-            // 
-            this.tbxNomPointInteret.Location = new System.Drawing.Point(750, 48);
-            this.tbxNomPointInteret.Name = "tbxNomPointInteret";
-            this.tbxNomPointInteret.Size = new System.Drawing.Size(154, 20);
-            this.tbxNomPointInteret.TabIndex = 32;
-            // 
-            // lblNomPointInteret
-            // 
-            this.lblNomPointInteret.AutoSize = true;
-            this.lblNomPointInteret.Location = new System.Drawing.Point(613, 51);
-            this.lblNomPointInteret.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
-            this.lblNomPointInteret.Name = "lblNomPointInteret";
-            this.lblNomPointInteret.Size = new System.Drawing.Size(32, 13);
-            this.lblNomPointInteret.TabIndex = 33;
-            this.lblNomPointInteret.Text = "Nom:";
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(937, 648);
+            this.ClientSize = new System.Drawing.Size(937, 619);
             this.Controls.Add(this.gbVehicule);
             this.Controls.Add(this.tcMenu);
-            this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "frmMain";
             this.Text = "Moto Care";
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.tcMenu.ResumeLayout(false);
             this.tpTrajets.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvTrajets)).EndInit();
             this.tpCarnet.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvCarnetEntretiens)).EndInit();
             this.tpGestion.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvGestionEntretiens)).EndInit();
             this.tpInterets.ResumeLayout(false);
             this.tpInterets.PerformLayout();
             this.gbVehicule.ResumeLayout(false);
             this.gbVehicule.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPhoto)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvGestionEntretiens)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem undoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem redoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-        private System.Windows.Forms.ToolStripMenuItem cutToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem copyToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem pasteToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
-        private System.Windows.Forms.ToolStripMenuItem selectAllToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.TabControl tcMenu;
         private System.Windows.Forms.TabPage tpTrajets;
         private System.Windows.Forms.TabPage tpCarnet;
@@ -936,14 +790,6 @@
         private System.Windows.Forms.DataGridViewButtonColumn colSupprimer;
         private System.Windows.Forms.DataGridView dtgvGestionEntretiens;
         private System.Windows.Forms.Button btnAjoutEntretien;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colIdEntretien;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn colFait;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDescription;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDateDerniereMaintenance;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colKmDerniereMaintenance;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colFrequence;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colProchaineMaintenance;
         private System.Windows.Forms.DataGridViewTextBoxColumn colIdEntretienGestion;
         private System.Windows.Forms.DataGridViewCheckBoxColumn colFaitGestion;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDescriptionGestion;
@@ -960,6 +806,13 @@
         private System.Windows.Forms.TextBox tbxDescriptionPointInteret;
         private System.Windows.Forms.Label lblNomPointInteret;
         private System.Windows.Forms.TextBox tbxNomPointInteret;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colIdEntretien;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn colFait;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDescription;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDateDerniereMaintenance;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colKmDerniereMaintenance;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colFrequence;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colProchaineMaintenance;
     }
 }
 

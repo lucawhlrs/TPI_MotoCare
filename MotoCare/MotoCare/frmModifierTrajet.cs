@@ -12,8 +12,6 @@ namespace MotoCare
 {
     public partial class FrmModifierTrajet : Form
     {
-        BD bd = new BD();
-
         private string _depart;
         private string _arrivee;
         private string _distance;

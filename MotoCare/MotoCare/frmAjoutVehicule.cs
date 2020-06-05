@@ -25,7 +25,7 @@ namespace MotoCare
         public string Nom { get => tbxNom.Text; set => _nom = value; }
         public string Description { get => tbxDescription.Text; set => _description = value; }
         public string KmInitial { get => nudInitial.Value.ToString(); set => _kmInitial = value; }
-        public string KmReel { get => nudReel.Value.ToString(); set => _kmReel = value; }
+        public string KmReel { get => nudInitial.Value.ToString(); set => _kmReel = value; }//Même valeur que KmInitial car KmReel est calculé avec les trajets
         public byte[] PhotoEnBytes { get => _photoEnBytes; set => _photoEnBytes = value; }
 
         Image image;

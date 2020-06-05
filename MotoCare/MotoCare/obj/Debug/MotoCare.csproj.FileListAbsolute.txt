@@ -29,3 +29,7 @@ C:\Users\lucaw\Desktop\TPI\TPI_MotoCare\MotoCare\MotoCare\obj\Debug\MotoCare.frm
 C:\Users\lucaw\Desktop\TPI\TPI_MotoCare\MotoCare\MotoCare\obj\Debug\MotoCare.frmModifierTrajet.resources
 C:\Users\lucaw\Desktop\TPI\TPI_MotoCare\MotoCare\MotoCare\obj\Debug\MotoCare.FrmAjoutEntretien.resources
 C:\Users\lucaw\Desktop\TPI\TPI_MotoCare\MotoCare\MotoCare\obj\Debug\MotoCare.FrmModifierEntretien.resources
+C:\Users\lucaw\Desktop\TPI\TPI_MotoCare\MotoCare\MotoCare\bin\Debug\MotoCare.exe.manifest
+C:\Users\lucaw\Desktop\TPI\TPI_MotoCare\MotoCare\MotoCare\bin\Debug\MotoCare.application
+C:\Users\lucaw\Desktop\TPI\TPI_MotoCare\MotoCare\MotoCare\obj\Debug\MotoCare.exe.manifest
+C:\Users\lucaw\Desktop\TPI\TPI_MotoCare\MotoCare\MotoCare\obj\Debug\MotoCare.application

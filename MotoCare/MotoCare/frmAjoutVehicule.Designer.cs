@@ -39,12 +39,9 @@
             this.btnValider = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.btnPhoto = new System.Windows.Forms.Button();
-            this.nudReel = new System.Windows.Forms.NumericUpDown();
-            this.label6 = new System.Windows.Forms.Label();
             this.lblErreurAjoutVehicule = new System.Windows.Forms.Label();
             this.pcbPhoto = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudInitial)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudReel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPhoto)).BeginInit();
             this.SuspendLayout();
             // 
@@ -81,7 +78,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(10, 226);
+            this.label4.Location = new System.Drawing.Point(10, 196);
             this.label4.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(38, 13);
@@ -91,7 +88,7 @@
             // tbxNom
             // 
             this.tbxNom.Location = new System.Drawing.Point(157, 58);
-            this.tbxNom.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.tbxNom.Margin = new System.Windows.Forms.Padding(1);
             this.tbxNom.Name = "tbxNom";
             this.tbxNom.Size = new System.Drawing.Size(160, 20);
             this.tbxNom.TabIndex = 1;
@@ -99,7 +96,7 @@
             // tbxDescription
             // 
             this.tbxDescription.Location = new System.Drawing.Point(157, 91);
-            this.tbxDescription.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.tbxDescription.Margin = new System.Windows.Forms.Padding(1);
             this.tbxDescription.Multiline = true;
             this.tbxDescription.Name = "tbxDescription";
             this.tbxDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -109,7 +106,7 @@
             // nudInitial
             // 
             this.nudInitial.Location = new System.Drawing.Point(157, 158);
-            this.nudInitial.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.nudInitial.Margin = new System.Windows.Forms.Padding(1);
             this.nudInitial.Maximum = new decimal(new int[] {
             999999,
             0,
@@ -123,7 +120,7 @@
             // 
             this.btnAnnuler.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnAnnuler.Location = new System.Drawing.Point(10, 355);
-            this.btnAnnuler.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.btnAnnuler.Margin = new System.Windows.Forms.Padding(1);
             this.btnAnnuler.Name = "btnAnnuler";
             this.btnAnnuler.Size = new System.Drawing.Size(56, 23);
             this.btnAnnuler.TabIndex = 7;
@@ -133,7 +130,7 @@
             // btnValider
             // 
             this.btnValider.Location = new System.Drawing.Point(261, 355);
-            this.btnValider.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.btnValider.Margin = new System.Windows.Forms.Padding(1);
             this.btnValider.Name = "btnValider";
             this.btnValider.Size = new System.Drawing.Size(56, 23);
             this.btnValider.TabIndex = 6;
@@ -154,37 +151,14 @@
             // 
             // btnPhoto
             // 
-            this.btnPhoto.Location = new System.Drawing.Point(157, 220);
-            this.btnPhoto.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.btnPhoto.Location = new System.Drawing.Point(157, 190);
+            this.btnPhoto.Margin = new System.Windows.Forms.Padding(1);
             this.btnPhoto.Name = "btnPhoto";
             this.btnPhoto.Size = new System.Drawing.Size(160, 25);
             this.btnPhoto.TabIndex = 5;
             this.btnPhoto.Text = "Ajouter une photo";
             this.btnPhoto.UseVisualStyleBackColor = true;
             this.btnPhoto.Click += new System.EventHandler(this.btnPhoto_Click);
-            // 
-            // nudReel
-            // 
-            this.nudReel.Location = new System.Drawing.Point(157, 187);
-            this.nudReel.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
-            this.nudReel.Maximum = new decimal(new int[] {
-            999999,
-            0,
-            0,
-            0});
-            this.nudReel.Name = "nudReel";
-            this.nudReel.Size = new System.Drawing.Size(160, 20);
-            this.nudReel.TabIndex = 4;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(10, 189);
-            this.label6.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(97, 13);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "Nb. de Km actuels:";
             // 
             // lblErreurAjoutVehicule
             // 
@@ -198,7 +172,7 @@
             // 
             // pcbPhoto
             // 
-            this.pcbPhoto.Location = new System.Drawing.Point(157, 249);
+            this.pcbPhoto.Location = new System.Drawing.Point(157, 219);
             this.pcbPhoto.Name = "pcbPhoto";
             this.pcbPhoto.Size = new System.Drawing.Size(160, 97);
             this.pcbPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -213,8 +187,6 @@
             this.ClientSize = new System.Drawing.Size(327, 388);
             this.Controls.Add(this.pcbPhoto);
             this.Controls.Add(this.lblErreurAjoutVehicule);
-            this.Controls.Add(this.nudReel);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.btnPhoto);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btnValider);
@@ -227,12 +199,11 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.Margin = new System.Windows.Forms.Padding(1);
             this.Name = "FrmAjoutVehicule";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Ajouter un véhicule";
             ((System.ComponentModel.ISupportInitialize)(this.nudInitial)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudReel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPhoto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -252,8 +223,6 @@
         private System.Windows.Forms.Button btnValider;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnPhoto;
-        private System.Windows.Forms.NumericUpDown nudReel;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lblErreurAjoutVehicule;
         private System.Windows.Forms.PictureBox pcbPhoto;
     }

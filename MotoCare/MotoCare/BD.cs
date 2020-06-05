@@ -276,6 +276,12 @@ namespace MotoCare
             SQLiteCommand sQLiteCommand = new SQLiteCommand(query, maConnexion);
             sQLiteCommand.ExecuteNonQuery();
         }
+        public void SupprimerEntretiensVehicule(string idVehicule)
+        {
+            string query = string.Format("DELETE FROM maintenance WHERE idVehicule = '{0}';", idVehicule);
+            SQLiteCommand sQLiteCommand = new SQLiteCommand(query, maConnexion);
+            sQLiteCommand.ExecuteNonQuery();
+        }
         public void MettreAJourEntretien(string description, string freqKm, string idMaintenance)
         {
             string query = string.Format("UPDATE maintenance SET description = '{0}', freqKm = '{1}' " +
