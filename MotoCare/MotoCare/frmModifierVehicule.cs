@@ -1,4 +1,18 @@
-﻿using System;
+﻿/*
+ *  Auteur      :   Luca Wohlers
+ *  Professeur  :   Mme. Anne Terrier
+ *  Experts     :   M. Borys Folomietow et M. Alain Fontanini
+ *  Date        :   08 Juin 2020
+ *  Projet      :   Moto Care
+ *  Version     :   1.0
+ *  Description :   Moto Care est une application développé dans le cadre
+ *                  d'un travail pratique individuel (TPI) que les élèves d'informatique
+ *                  doivent effectuer à la fin de leur CFC.
+ *                  Cette application consiste à gérer des entretiens et trajets en fonction 
+ *                  de véhicules. On peut aussi voir et ajouter des points d'intérêts sur une carte.
+ *  Fichier     :   frmModifierVehicule.cs
+ */
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -53,10 +67,19 @@ namespace MotoCare
 
             if (ofdImage.ShowDialog() == DialogResult.OK)
             {
-                image = Image.FromFile(ofdImage.FileName);
-                PhotoEnBytes = bd.ImageToBytesArray(image);
+                //Permet la sélection d'une image png ou jpg seulement
+                if (ofdImage.SafeFileName.Substring(ofdImage.SafeFileName.Length - 3, 3) == "png" ||
+                    ofdImage.SafeFileName.Substring(ofdImage.SafeFileName.Length - 3, 3) == "jpg")
+                {
+                    image = Image.FromFile(ofdImage.FileName);
+                    PhotoEnBytes = bd.ImageToBytesArray(image);
 
-                pcbPhoto.Image = image;
+                    pcbPhoto.Image = image;
+                }
+                else
+                {
+                    MessageBox.Show("Veuillez sélectionner une image .png ou .jpg", "Impossible", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
             }
         }
 

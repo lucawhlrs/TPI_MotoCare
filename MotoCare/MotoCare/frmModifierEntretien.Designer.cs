@@ -29,13 +29,14 @@
         private void InitializeComponent()
         {
             this.lblErreurAjoutTrajet = new System.Windows.Forms.Label();
-            this.tbxFreqKm = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btnValider = new System.Windows.Forms.Button();
             this.btnAnnuler = new System.Windows.Forms.Button();
             this.tbxDescription = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.nudFreqKm = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.nudFreqKm)).BeginInit();
             this.SuspendLayout();
             // 
             // lblErreurAjoutTrajet
@@ -47,14 +48,6 @@
             this.lblErreurAjoutTrajet.Name = "lblErreurAjoutTrajet";
             this.lblErreurAjoutTrajet.Size = new System.Drawing.Size(0, 16);
             this.lblErreurAjoutTrajet.TabIndex = 64;
-            // 
-            // tbxFreqKm
-            // 
-            this.tbxFreqKm.Location = new System.Drawing.Point(153, 153);
-            this.tbxFreqKm.Margin = new System.Windows.Forms.Padding(1);
-            this.tbxFreqKm.Name = "tbxFreqKm";
-            this.tbxFreqKm.Size = new System.Drawing.Size(200, 20);
-            this.tbxFreqKm.TabIndex = 58;
             // 
             // label5
             // 
@@ -119,13 +112,25 @@
             this.label1.TabIndex = 61;
             this.label1.Text = "Description:";
             // 
+            // nudFreqKm
+            // 
+            this.nudFreqKm.Location = new System.Drawing.Point(153, 153);
+            this.nudFreqKm.Maximum = new decimal(new int[] {
+            999999,
+            0,
+            0,
+            0});
+            this.nudFreqKm.Name = "nudFreqKm";
+            this.nudFreqKm.Size = new System.Drawing.Size(200, 20);
+            this.nudFreqKm.TabIndex = 65;
+            // 
             // FrmModifierEntretien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(363, 234);
+            this.Controls.Add(this.nudFreqKm);
             this.Controls.Add(this.lblErreurAjoutTrajet);
-            this.Controls.Add(this.tbxFreqKm);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btnValider);
             this.Controls.Add(this.btnAnnuler);
@@ -133,9 +138,11 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "FrmModifierEntretien";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmModifierEntretien";
+            ((System.ComponentModel.ISupportInitialize)(this.nudFreqKm)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -144,12 +151,12 @@
         #endregion
 
         private System.Windows.Forms.Label lblErreurAjoutTrajet;
-        private System.Windows.Forms.TextBox tbxFreqKm;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnValider;
         private System.Windows.Forms.Button btnAnnuler;
         private System.Windows.Forms.TextBox tbxDescription;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.NumericUpDown nudFreqKm;
     }
 }
