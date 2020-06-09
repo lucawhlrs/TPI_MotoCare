@@ -1,0 +1,259 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="MotoCare.BD">
+    <Position X="16.5" Y="0.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>BACIAAAIABCAgAAAAAEAIEQAUEBgCAAWQAgAAAAAACI=</HashCode>
+      <FileName>Modele\BD.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MotoCare.Entretien">
+    <Position X="21.25" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAEAAgAAAMAAAQAAAIAUBAEAAAAABAAAAAAAQ=</HashCode>
+      <FileName>Modele\Entretien.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MotoCare.PointInteret">
+    <Position X="21.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAACAgAEQEIAAAAABABCAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Modele\PointInteret.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MotoCare.Program" Collapsed="true">
+    <Position X="0.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Modele\Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MotoCare.Trajet">
+    <Position X="19.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAEAAgAAAABAAAAAQIAAQAAABBAAAAAAAAIAA=</HashCode>
+      <FileName>Modele\Trajet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MotoCare.Vehicule">
+    <Position X="19.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEABgACAEAAAAAAAABCAAAAAAAAIAAAAAEAE=</HashCode>
+      <FileName>Modele\Vehicule.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MotoCare.FrmAjoutEntretien">
+    <Position X="13.5" Y="0.5" Width="1.5" />
+    <Members>
+      <Field Name="btnAnnuler" Hidden="true" />
+      <Field Name="btnValider" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Field Name="label1" Hidden="true" />
+      <Field Name="label2" Hidden="true" />
+      <Field Name="label3" Hidden="true" />
+      <Field Name="label4" Hidden="true" />
+      <Field Name="label5" Hidden="true" />
+      <Field Name="label6" Hidden="true" />
+      <Field Name="lblErreurAjoutTrajet" Hidden="true" />
+      <Field Name="nudFreqKm" Hidden="true" />
+      <Field Name="nudKmPremierEntretien" Hidden="true" />
+      <Field Name="tbxDescription" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAEABAAgCAhAhAEAACACAICAEAAEAQAAACAAAAAAAA=</HashCode>
+      <FileName>Vue\frmAjoutEntretien.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MotoCare.FrmAjoutTrajet">
+    <Position X="11.5" Y="0.5" Width="1.75" />
+    <Members>
+      <Field Name="btnAnnuler" Hidden="true" />
+      <Field Name="btnValider" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Field Name="dtpDate" Hidden="true" />
+      <Field Name="label1" Hidden="true" />
+      <Field Name="label2" Hidden="true" />
+      <Field Name="label3" Hidden="true" />
+      <Field Name="label5" Hidden="true" />
+      <Field Name="label6" Hidden="true" />
+      <Field Name="lblErreurAjoutTrajet" Hidden="true" />
+      <Field Name="nudDistance" Hidden="true" />
+      <Field Name="tbxArrivee" Hidden="true" />
+      <Field Name="tbxDepart" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAIAAACICABAhAAFACAAAYKAAQAAARBAAAAAAAAIQA=</HashCode>
+      <FileName>Vue\frmAjoutTrajet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MotoCare.FrmAjoutVehicule">
+    <Position X="9.5" Y="0.5" Width="1.75" />
+    <Members>
+      <Field Name="btnAnnuler" Hidden="true" />
+      <Field Name="btnPhoto" Hidden="true" />
+      <Field Name="btnValider" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Field Name="label1" Hidden="true" />
+      <Field Name="label2" Hidden="true" />
+      <Field Name="label3" Hidden="true" />
+      <Field Name="label4" Hidden="true" />
+      <Field Name="label5" Hidden="true" />
+      <Field Name="lblErreurAjoutVehicule" Hidden="true" />
+      <Field Name="nudInitial" Hidden="true" />
+      <Field Name="pcbPhoto" Hidden="true" />
+      <Field Name="tbxDescription" Hidden="true" />
+      <Field Name="tbxNom" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>ACAQAAAEACAhAhAEAACACAICFCCAAAQAAAIIAACREAE=</HashCode>
+      <FileName>Vue\frmAjoutVehicule.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MotoCare.frmMain">
+    <Position X="6.25" Y="0.5" Width="3" />
+    <Members>
+      <Field Name="btnAjoutEntretien" Hidden="true" />
+      <Field Name="btnAjouterPointInteret" Hidden="true" />
+      <Field Name="btnAjouterTrajet" Hidden="true" />
+      <Field Name="btnAjouterVehicule" Hidden="true" />
+      <Field Name="btnModifierVehicule" Hidden="true" />
+      <Field Name="btnSupprimerVehicule" Hidden="true" />
+      <Field Name="cbxVehicules" Hidden="true" />
+      <Field Name="cbxVisitePointInteret" Hidden="true" />
+      <Field Name="colArrivee" Hidden="true" />
+      <Field Name="colDate" Hidden="true" />
+      <Field Name="colDateDerniereMaintenance" Hidden="true" />
+      <Field Name="colDepart" Hidden="true" />
+      <Field Name="colDescription" Hidden="true" />
+      <Field Name="colDescriptionGestion" Hidden="true" />
+      <Field Name="colDistance" Hidden="true" />
+      <Field Name="colFait" Hidden="true" />
+      <Field Name="colFaitGestion" Hidden="true" />
+      <Field Name="colFreqKmGestion" Hidden="true" />
+      <Field Name="colFrequence" Hidden="true" />
+      <Field Name="colIdEntretien" Hidden="true" />
+      <Field Name="colIdEntretienGestion" Hidden="true" />
+      <Field Name="colKmDerniereMaintenance" Hidden="true" />
+      <Field Name="colKmLorsEntretienGestion" Hidden="true" />
+      <Field Name="colModifier" Hidden="true" />
+      <Field Name="colModifierGestion" Hidden="true" />
+      <Field Name="colProchaineMaintenance" Hidden="true" />
+      <Field Name="colSupprimer" Hidden="true" />
+      <Field Name="colSupprimerGestion" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Field Name="dtgvCarnetEntretiens" Hidden="true" />
+      <Field Name="dtgvGestionEntretiens" Hidden="true" />
+      <Field Name="dtgvTrajets" Hidden="true" />
+      <Field Name="gbVehicule" Hidden="true" />
+      <Field Name="gmcCarte" Hidden="true" />
+      <Field Name="label1" Hidden="true" />
+      <Field Name="label2" Hidden="true" />
+      <Field Name="label3" Hidden="true" />
+      <Field Name="label4" Hidden="true" />
+      <Field Name="label5" Hidden="true" />
+      <Field Name="label6" Hidden="true" />
+      <Field Name="label7" Hidden="true" />
+      <Field Name="label8" Hidden="true" />
+      <Field Name="lblErreurAjoutPointInteret" Hidden="true" />
+      <Field Name="lblNomPointInteret" Hidden="true" />
+      <Field Name="pcbPhoto" Hidden="true" />
+      <Field Name="tbxDescription" Hidden="true" />
+      <Field Name="tbxDescriptionPointInteret" Hidden="true" />
+      <Field Name="tbxKmInitial" Hidden="true" />
+      <Field Name="tbxKmReel" Hidden="true" />
+      <Field Name="tbxNomPointInteret" Hidden="true" />
+      <Field Name="tcMenu" Hidden="true" />
+      <Field Name="tpCarnet" Hidden="true" />
+      <Field Name="tpGestion" Hidden="true" />
+      <Field Name="tpInterets" Hidden="true" />
+      <Field Name="tpTrajets" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>gIRwEIAGAiEAQpIIBETQCgTiDpMABwBwiLEQgUQYEQs=</HashCode>
+      <FileName>Vue\frmMain.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MotoCare.FrmModifierEntretien">
+    <Position X="13.5" Y="5.25" Width="1.5" />
+    <Members>
+      <Field Name="btnAnnuler" Hidden="true" />
+      <Field Name="btnValider" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Field Name="label1" Hidden="true" />
+      <Field Name="label2" Hidden="true" />
+      <Field Name="label5" Hidden="true" />
+      <Field Name="lblErreurAjoutTrajet" Hidden="true" />
+      <Field Name="nudFreqKm" Hidden="true" />
+      <Field Name="tbxDescription" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAhAhAEAACACAICAEAAEAQAAACAAAAAAAA=</HashCode>
+      <FileName>Vue\frmModifierEntretien.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MotoCare.FrmModifierTrajet">
+    <Position X="11.5" Y="5.25" Width="1.75" />
+    <Members>
+      <Field Name="btnAnnuler" Hidden="true" />
+      <Field Name="btnValider" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Field Name="dtpDate" Hidden="true" />
+      <Field Name="label1" Hidden="true" />
+      <Field Name="label2" Hidden="true" />
+      <Field Name="label3" Hidden="true" />
+      <Field Name="label5" Hidden="true" />
+      <Field Name="label6" Hidden="true" />
+      <Field Name="lblErreurAjoutTrajet" Hidden="true" />
+      <Field Name="nudDistance" Hidden="true" />
+      <Field Name="tbxArrivee" Hidden="true" />
+      <Field Name="tbxDepart" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAIAAACICABAhAAFACAAAYKAAQAAARBAAAAAAAAIQA=</HashCode>
+      <FileName>Vue\frmModifierTrajet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MotoCare.FrmModifierVehicule">
+    <Position X="9.5" Y="5.25" Width="1.75" />
+    <Members>
+      <Field Name="btnAnnuler" Hidden="true" />
+      <Field Name="btnPhoto" Hidden="true" />
+      <Field Name="btnValider" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Field Name="label1" Hidden="true" />
+      <Field Name="label2" Hidden="true" />
+      <Field Name="label3" Hidden="true" />
+      <Field Name="label4" Hidden="true" />
+      <Field Name="label5" Hidden="true" />
+      <Field Name="lblErreurAjoutVehicule" Hidden="true" />
+      <Field Name="nudInitial" Hidden="true" />
+      <Field Name="pcbPhoto" Hidden="true" />
+      <Field Name="tbxDescription" Hidden="true" />
+      <Field Name="tbxNom" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>ACAQAAAEACAhAhAEAACACAICFCCAAAQAAAIIAACREAE=</HashCode>
+      <FileName>Vue\frmModifierVehicule.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MotoCare.Properties.Resources" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MotoCare.Properties.Settings" Collapsed="true">
+    <Position X="0.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

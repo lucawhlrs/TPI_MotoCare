@@ -38,6 +38,7 @@ namespace MotoCare
     {
         const string CHAINE_CONNEXION = "Data Source=motoCare.sqlite;Version=3;";
         public SQLiteConnection maConnexion = new SQLiteConnection(CHAINE_CONNEXION);
+
         string sql = string.Empty;
 
         public BD()
@@ -128,6 +129,7 @@ namespace MotoCare
             List<Vehicule> vehicules = new List<Vehicule>();
             sql = "SELECT idVehicule, nom, description, kmInitial, kmReel, photo FROM vehicule";
             SQLiteCommand command = new SQLiteCommand(sql, maConnexion);
+            //Pour récupérer toutes les lignes et colonnes
             SQLiteDataReader dtReader = command.ExecuteReader();
 
             while (dtReader.Read())

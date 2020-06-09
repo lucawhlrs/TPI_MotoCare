@@ -66,7 +66,7 @@
             this.btnValider.Margin = new System.Windows.Forms.Padding(1);
             this.btnValider.Name = "btnValider";
             this.btnValider.Size = new System.Drawing.Size(56, 23);
-            this.btnValider.TabIndex = 59;
+            this.btnValider.TabIndex = 3;
             this.btnValider.Text = "Valider";
             this.btnValider.UseVisualStyleBackColor = true;
             this.btnValider.Click += new System.EventHandler(this.btnValider_Click);
@@ -78,7 +78,7 @@
             this.btnAnnuler.Margin = new System.Windows.Forms.Padding(1);
             this.btnAnnuler.Name = "btnAnnuler";
             this.btnAnnuler.Size = new System.Drawing.Size(56, 23);
-            this.btnAnnuler.TabIndex = 60;
+            this.btnAnnuler.TabIndex = 4;
             this.btnAnnuler.Text = "Annuler";
             this.btnAnnuler.UseVisualStyleBackColor = true;
             // 
@@ -90,7 +90,7 @@
             this.tbxDescription.Name = "tbxDescription";
             this.tbxDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.tbxDescription.Size = new System.Drawing.Size(200, 79);
-            this.tbxDescription.TabIndex = 57;
+            this.tbxDescription.TabIndex = 1;
             // 
             // label2
             // 
@@ -122,10 +122,11 @@
             0});
             this.nudFreqKm.Name = "nudFreqKm";
             this.nudFreqKm.Size = new System.Drawing.Size(200, 20);
-            this.nudFreqKm.TabIndex = 65;
+            this.nudFreqKm.TabIndex = 2;
             // 
             // FrmModifierEntretien
             // 
+            this.AcceptButton = this.btnValider;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(363, 234);

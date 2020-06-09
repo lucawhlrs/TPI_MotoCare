@@ -12,7 +12,7 @@ namespace MotoCare.Tests
     public class EntretienTests
     {
         [TestMethod()]
-        public void EntretienTest()
+        public void EntretienTestCtorPremier()
         {
             Entretien entretien = new Entretien("1", "Vidange", "8000", "8000", "", "", "0", "1");
 
@@ -20,6 +20,20 @@ namespace MotoCare.Tests
             Assert.AreEqual("Vidange", entretien.Description);
             Assert.AreEqual("8000", entretien.FreqKm);
             Assert.AreEqual("8000", entretien.KmPremiereMaintenance);
+            Assert.AreEqual("", entretien.KmDerniereMaintenance);
+            Assert.AreEqual(new DateTime(), entretien.DateDerniereMaintenance);
+            Assert.AreEqual(false, entretien.Fait);
+            Assert.AreEqual("1", entretien.IdVehicule);
+        }
+        [TestMethod()]
+        public void EntretienTestCtorRépétition()
+        {
+            Entretien entretien = new Entretien("1", "Vidange", "8000", "8000", "", "", "0", "1");
+
+            Assert.AreEqual("1", entretien.IdMaintenance);
+            Assert.AreEqual("Vidange", entretien.Description);
+            Assert.AreEqual("8000", entretien.FreqKm);
+            Assert.AreEqual("", entretien.KmPremiereMaintenance);
             Assert.AreEqual("", entretien.KmDerniereMaintenance);
             Assert.AreEqual(new DateTime(), entretien.DateDerniereMaintenance);
             Assert.AreEqual(false, entretien.Fait);

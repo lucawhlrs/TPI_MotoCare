@@ -68,10 +68,10 @@
             // btnValider
             // 
             this.btnValider.Location = new System.Drawing.Point(329, 242);
-            this.btnValider.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.btnValider.Margin = new System.Windows.Forms.Padding(1);
             this.btnValider.Name = "btnValider";
             this.btnValider.Size = new System.Drawing.Size(56, 23);
-            this.btnValider.TabIndex = 49;
+            this.btnValider.TabIndex = 4;
             this.btnValider.Text = "Valider";
             this.btnValider.UseVisualStyleBackColor = true;
             this.btnValider.Click += new System.EventHandler(this.btnValider_Click);
@@ -80,22 +80,22 @@
             // 
             this.btnAnnuler.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnAnnuler.Location = new System.Drawing.Point(10, 242);
-            this.btnAnnuler.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.btnAnnuler.Margin = new System.Windows.Forms.Padding(1);
             this.btnAnnuler.Name = "btnAnnuler";
             this.btnAnnuler.Size = new System.Drawing.Size(56, 23);
-            this.btnAnnuler.TabIndex = 50;
+            this.btnAnnuler.TabIndex = 5;
             this.btnAnnuler.Text = "Annuler";
             this.btnAnnuler.UseVisualStyleBackColor = true;
             // 
             // tbxDescription
             // 
             this.tbxDescription.Location = new System.Drawing.Point(162, 57);
-            this.tbxDescription.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.tbxDescription.Margin = new System.Windows.Forms.Padding(1);
             this.tbxDescription.Multiline = true;
             this.tbxDescription.Name = "tbxDescription";
             this.tbxDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.tbxDescription.Size = new System.Drawing.Size(200, 79);
-            this.tbxDescription.TabIndex = 45;
+            this.tbxDescription.TabIndex = 1;
             // 
             // label2
             // 
@@ -157,7 +157,7 @@
             0});
             this.nudKmPremierEntretien.Name = "nudKmPremierEntretien";
             this.nudKmPremierEntretien.Size = new System.Drawing.Size(200, 20);
-            this.nudKmPremierEntretien.TabIndex = 61;
+            this.nudKmPremierEntretien.TabIndex = 2;
             // 
             // nudFreqKm
             // 
@@ -169,10 +169,11 @@
             0});
             this.nudFreqKm.Name = "nudFreqKm";
             this.nudFreqKm.Size = new System.Drawing.Size(200, 20);
-            this.nudFreqKm.TabIndex = 62;
+            this.nudFreqKm.TabIndex = 3;
             // 
             // FrmAjoutEntretien
             // 
+            this.AcceptButton = this.btnValider;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(395, 275);

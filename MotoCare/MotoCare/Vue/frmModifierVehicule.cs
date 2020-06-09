@@ -26,21 +26,21 @@ namespace MotoCare
 {
     public partial class FrmModifierVehicule : Form
     {
-        //A faire: un héritage avec une classe parent. A affecter aussi frmAjoutVehicule
+        //Déclaration de bd pour pouvoir faire un appel à la classe BD et pouvoir convertir l'image en tableau d'octet
         BD bd = new BD();
+        Image image;
 
         private string _nom;
         private string _description;
         private string _kmInitial;
         private string _kmReel;
         private byte[] _photoEnBytes;
+
         public string Nom { get => tbxNom.Text; set => _nom = value; }
         public string Description { get => tbxDescription.Text; set => _description = value; }
         public string KmInitial { get => nudInitial.Value.ToString(); set => _kmInitial = value; }
         public string KmReel { get => _kmReel; set => _kmReel = value; }//Ne change pas
         public byte[] PhotoEnBytes { get => _photoEnBytes; set => _photoEnBytes = value; }
-
-        Image image;
 
         public FrmModifierVehicule(Vehicule vehicule)
         {

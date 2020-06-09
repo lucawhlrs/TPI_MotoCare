@@ -262,15 +262,10 @@ namespace MotoCare
         {
             //Indique quelle carte afficher
             gmcCarte.MapProvider = GoogleMapProvider.Instance;
-            //Zoom au niveau de la souris
-            GMaps.Instance.Mode = AccessMode.ServerOnly;
             //Enlever la croix rouge
             gmcCarte.ShowCenter = false;
             //La ou débute la map (sur Genève)
             gmcCarte.Position = new PointLatLng(46.2, 6.1667);
-
-            //Ajouter la couche à la map
-            gmcCarte.Overlays.Add(overlayMarkers);
         }
         private void btnAjouterVehicule_Click(object sender, EventArgs e)
         {

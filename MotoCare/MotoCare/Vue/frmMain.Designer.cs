@@ -28,20 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.tcMenu = new System.Windows.Forms.TabControl();
             this.tpTrajets = new System.Windows.Forms.TabPage();
             this.btnAjouterTrajet = new System.Windows.Forms.Button();
             this.dtgvTrajets = new System.Windows.Forms.DataGridView();
+            this.colDepart = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colArrivee = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDistance = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colModifier = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.colSupprimer = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tpCarnet = new System.Windows.Forms.TabPage();
             this.dtgvCarnetEntretiens = new System.Windows.Forms.DataGridView();
+            this.colIdEntretien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colFait = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.colDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDateDerniereMaintenance = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colKmDerniereMaintenance = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colFrequence = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colProchaineMaintenance = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tpGestion = new System.Windows.Forms.TabPage();
             this.dtgvGestionEntretiens = new System.Windows.Forms.DataGridView();
             this.colIdEntretienGestion = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,6 +66,7 @@
             this.colSupprimerGestion = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnAjoutEntretien = new System.Windows.Forms.Button();
             this.tpInterets = new System.Windows.Forms.TabPage();
+            this.lblErreurAjoutPointInteret = new System.Windows.Forms.Label();
             this.lblNomPointInteret = new System.Windows.Forms.Label();
             this.tbxNomPointInteret = new System.Windows.Forms.TextBox();
             this.cbxVisitePointInteret = new System.Windows.Forms.ComboBox();
@@ -76,20 +90,6 @@
             this.tbxDescription = new System.Windows.Forms.TextBox();
             this.pcbPhoto = new System.Windows.Forms.PictureBox();
             this.cbxVehicules = new System.Windows.Forms.ComboBox();
-            this.lblErreurAjoutPointInteret = new System.Windows.Forms.Label();
-            this.colDepart = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colArrivee = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDistance = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colModifier = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.colSupprimer = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.colIdEntretien = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colFait = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.colDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDateDerniereMaintenance = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colKmDerniereMaintenance = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colFrequence = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colProchaineMaintenance = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tcMenu.SuspendLayout();
             this.tpTrajets.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvTrajets)).BeginInit();
@@ -160,6 +160,74 @@
             this.dtgvTrajets.TabIndex = 0;
             this.dtgvTrajets.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvTrajets_CellContentClick);
             // 
+            // colDepart
+            // 
+            this.colDepart.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colDepart.FillWeight = 41.69231F;
+            this.colDepart.HeaderText = "Départ";
+            this.colDepart.MinimumWidth = 12;
+            this.colDepart.Name = "colDepart";
+            this.colDepart.ReadOnly = true;
+            // 
+            // colArrivee
+            // 
+            this.colArrivee.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colArrivee.FillWeight = 41.69231F;
+            this.colArrivee.HeaderText = "Arrivée";
+            this.colArrivee.MinimumWidth = 12;
+            this.colArrivee.Name = "colArrivee";
+            this.colArrivee.ReadOnly = true;
+            // 
+            // colDistance
+            // 
+            this.colDistance.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colDistance.FillWeight = 41.69231F;
+            this.colDistance.HeaderText = "Distance(Km)";
+            this.colDistance.MinimumWidth = 12;
+            this.colDistance.Name = "colDistance";
+            this.colDistance.ReadOnly = true;
+            // 
+            // colDate
+            // 
+            this.colDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle1.Format = "D";
+            dataGridViewCellStyle1.NullValue = null;
+            this.colDate.DefaultCellStyle = dataGridViewCellStyle1;
+            this.colDate.FillWeight = 41.69231F;
+            this.colDate.HeaderText = "Date";
+            this.colDate.MinimumWidth = 12;
+            this.colDate.Name = "colDate";
+            this.colDate.ReadOnly = true;
+            // 
+            // colModifier
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DodgerBlue;
+            this.colModifier.DefaultCellStyle = dataGridViewCellStyle2;
+            this.colModifier.FillWeight = 204.8044F;
+            this.colModifier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.colModifier.HeaderText = "Modifier";
+            this.colModifier.MinimumWidth = 12;
+            this.colModifier.Name = "colModifier";
+            this.colModifier.ReadOnly = true;
+            this.colModifier.Text = "Modif.";
+            this.colModifier.Width = 70;
+            // 
+            // colSupprimer
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.IndianRed;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colSupprimer.DefaultCellStyle = dataGridViewCellStyle3;
+            this.colSupprimer.FillWeight = 228.4264F;
+            this.colSupprimer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.colSupprimer.HeaderText = "Supprimer";
+            this.colSupprimer.MinimumWidth = 12;
+            this.colSupprimer.Name = "colSupprimer";
+            this.colSupprimer.ReadOnly = true;
+            this.colSupprimer.Text = "Test de texte";
+            this.colSupprimer.Width = 70;
+            // 
             // tpCarnet
             // 
             this.tpCarnet.Controls.Add(this.dtgvCarnetEntretiens);
@@ -193,6 +261,74 @@
             this.dtgvCarnetEntretiens.Size = new System.Drawing.Size(919, 361);
             this.dtgvCarnetEntretiens.TabIndex = 1;
             this.dtgvCarnetEntretiens.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvCarnetEntretiens_CellContentClick);
+            // 
+            // colIdEntretien
+            // 
+            this.colIdEntretien.HeaderText = "Id";
+            this.colIdEntretien.MinimumWidth = 12;
+            this.colIdEntretien.Name = "colIdEntretien";
+            this.colIdEntretien.ReadOnly = true;
+            this.colIdEntretien.Visible = false;
+            this.colIdEntretien.Width = 250;
+            // 
+            // colFait
+            // 
+            this.colFait.HeaderText = "Effectué";
+            this.colFait.MinimumWidth = 12;
+            this.colFait.Name = "colFait";
+            this.colFait.ReadOnly = true;
+            this.colFait.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colFait.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.colFait.Width = 50;
+            // 
+            // colDescription
+            // 
+            this.colDescription.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colDescription.HeaderText = "Description";
+            this.colDescription.MinimumWidth = 12;
+            this.colDescription.Name = "colDescription";
+            this.colDescription.ReadOnly = true;
+            // 
+            // colDateDerniereMaintenance
+            // 
+            this.colDateDerniereMaintenance.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle4.Format = "D";
+            dataGridViewCellStyle4.NullValue = null;
+            this.colDateDerniereMaintenance.DefaultCellStyle = dataGridViewCellStyle4;
+            this.colDateDerniereMaintenance.HeaderText = "Date Dernière Maintenance";
+            this.colDateDerniereMaintenance.MinimumWidth = 12;
+            this.colDateDerniereMaintenance.Name = "colDateDerniereMaintenance";
+            this.colDateDerniereMaintenance.ReadOnly = true;
+            this.colDateDerniereMaintenance.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // colKmDerniereMaintenance
+            // 
+            this.colKmDerniereMaintenance.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colKmDerniereMaintenance.HeaderText = "Km Dernière Maintenance";
+            this.colKmDerniereMaintenance.MinimumWidth = 12;
+            this.colKmDerniereMaintenance.Name = "colKmDerniereMaintenance";
+            this.colKmDerniereMaintenance.ReadOnly = true;
+            // 
+            // colFrequence
+            // 
+            this.colFrequence.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colFrequence.HeaderText = "Fréquence";
+            this.colFrequence.MinimumWidth = 12;
+            this.colFrequence.Name = "colFrequence";
+            this.colFrequence.ReadOnly = true;
+            // 
+            // colProchaineMaintenance
+            // 
+            this.colProchaineMaintenance.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.Format = "N0";
+            dataGridViewCellStyle5.NullValue = null;
+            this.colProchaineMaintenance.DefaultCellStyle = dataGridViewCellStyle5;
+            this.colProchaineMaintenance.HeaderText = "Prochaine Maintenance dans (km):";
+            this.colProchaineMaintenance.MinimumWidth = 12;
+            this.colProchaineMaintenance.Name = "colProchaineMaintenance";
+            this.colProchaineMaintenance.ReadOnly = true;
+            this.colProchaineMaintenance.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // tpGestion
             // 
@@ -333,6 +469,16 @@
             this.tpInterets.TabIndex = 3;
             this.tpInterets.Text = "Points d\'intérêts";
             this.tpInterets.UseVisualStyleBackColor = true;
+            // 
+            // lblErreurAjoutPointInteret
+            // 
+            this.lblErreurAjoutPointInteret.AutoSize = true;
+            this.lblErreurAjoutPointInteret.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblErreurAjoutPointInteret.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblErreurAjoutPointInteret.Location = new System.Drawing.Point(615, 39);
+            this.lblErreurAjoutPointInteret.Name = "lblErreurAjoutPointInteret";
+            this.lblErreurAjoutPointInteret.Size = new System.Drawing.Size(0, 16);
+            this.lblErreurAjoutPointInteret.TabIndex = 65;
             // 
             // lblNomPointInteret
             // 
@@ -599,157 +745,11 @@
             this.cbxVehicules.TabIndex = 0;
             this.cbxVehicules.SelectedIndexChanged += new System.EventHandler(this.cbxVehicules_SelectedIndexChanged);
             // 
-            // lblErreurAjoutPointInteret
-            // 
-            this.lblErreurAjoutPointInteret.AutoSize = true;
-            this.lblErreurAjoutPointInteret.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblErreurAjoutPointInteret.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblErreurAjoutPointInteret.Location = new System.Drawing.Point(615, 39);
-            this.lblErreurAjoutPointInteret.Name = "lblErreurAjoutPointInteret";
-            this.lblErreurAjoutPointInteret.Size = new System.Drawing.Size(0, 16);
-            this.lblErreurAjoutPointInteret.TabIndex = 65;
-            // 
-            // colDepart
-            // 
-            this.colDepart.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colDepart.FillWeight = 41.69231F;
-            this.colDepart.HeaderText = "Départ";
-            this.colDepart.MinimumWidth = 12;
-            this.colDepart.Name = "colDepart";
-            this.colDepart.ReadOnly = true;
-            // 
-            // colArrivee
-            // 
-            this.colArrivee.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colArrivee.FillWeight = 41.69231F;
-            this.colArrivee.HeaderText = "Arrivée";
-            this.colArrivee.MinimumWidth = 12;
-            this.colArrivee.Name = "colArrivee";
-            this.colArrivee.ReadOnly = true;
-            // 
-            // colDistance
-            // 
-            this.colDistance.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colDistance.FillWeight = 41.69231F;
-            this.colDistance.HeaderText = "Distance(Km)";
-            this.colDistance.MinimumWidth = 12;
-            this.colDistance.Name = "colDistance";
-            this.colDistance.ReadOnly = true;
-            // 
-            // colDate
-            // 
-            this.colDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle1.Format = "D";
-            dataGridViewCellStyle1.NullValue = null;
-            this.colDate.DefaultCellStyle = dataGridViewCellStyle1;
-            this.colDate.FillWeight = 41.69231F;
-            this.colDate.HeaderText = "Date";
-            this.colDate.MinimumWidth = 12;
-            this.colDate.Name = "colDate";
-            this.colDate.ReadOnly = true;
-            // 
-            // colModifier
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DodgerBlue;
-            this.colModifier.DefaultCellStyle = dataGridViewCellStyle2;
-            this.colModifier.FillWeight = 204.8044F;
-            this.colModifier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.colModifier.HeaderText = "Modifier";
-            this.colModifier.MinimumWidth = 12;
-            this.colModifier.Name = "colModifier";
-            this.colModifier.ReadOnly = true;
-            this.colModifier.Text = "Modif.";
-            this.colModifier.Width = 70;
-            // 
-            // colSupprimer
-            // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.IndianRed;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colSupprimer.DefaultCellStyle = dataGridViewCellStyle3;
-            this.colSupprimer.FillWeight = 228.4264F;
-            this.colSupprimer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.colSupprimer.HeaderText = "Supprimer";
-            this.colSupprimer.MinimumWidth = 12;
-            this.colSupprimer.Name = "colSupprimer";
-            this.colSupprimer.ReadOnly = true;
-            this.colSupprimer.Text = "Test de texte";
-            this.colSupprimer.Width = 70;
-            // 
-            // colIdEntretien
-            // 
-            this.colIdEntretien.HeaderText = "Id";
-            this.colIdEntretien.MinimumWidth = 12;
-            this.colIdEntretien.Name = "colIdEntretien";
-            this.colIdEntretien.ReadOnly = true;
-            this.colIdEntretien.Visible = false;
-            this.colIdEntretien.Width = 250;
-            // 
-            // colFait
-            // 
-            this.colFait.HeaderText = "Effectué";
-            this.colFait.MinimumWidth = 12;
-            this.colFait.Name = "colFait";
-            this.colFait.ReadOnly = true;
-            this.colFait.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colFait.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.colFait.Width = 50;
-            // 
-            // colDescription
-            // 
-            this.colDescription.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colDescription.HeaderText = "Description";
-            this.colDescription.MinimumWidth = 12;
-            this.colDescription.Name = "colDescription";
-            this.colDescription.ReadOnly = true;
-            // 
-            // colDateDerniereMaintenance
-            // 
-            this.colDateDerniereMaintenance.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle4.Format = "D";
-            dataGridViewCellStyle4.NullValue = null;
-            this.colDateDerniereMaintenance.DefaultCellStyle = dataGridViewCellStyle4;
-            this.colDateDerniereMaintenance.HeaderText = "Date Dernière Maintenance";
-            this.colDateDerniereMaintenance.MinimumWidth = 12;
-            this.colDateDerniereMaintenance.Name = "colDateDerniereMaintenance";
-            this.colDateDerniereMaintenance.ReadOnly = true;
-            this.colDateDerniereMaintenance.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // colKmDerniereMaintenance
-            // 
-            this.colKmDerniereMaintenance.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colKmDerniereMaintenance.HeaderText = "Km Dernière Maintenance";
-            this.colKmDerniereMaintenance.MinimumWidth = 12;
-            this.colKmDerniereMaintenance.Name = "colKmDerniereMaintenance";
-            this.colKmDerniereMaintenance.ReadOnly = true;
-            // 
-            // colFrequence
-            // 
-            this.colFrequence.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colFrequence.HeaderText = "Fréquence";
-            this.colFrequence.MinimumWidth = 12;
-            this.colFrequence.Name = "colFrequence";
-            this.colFrequence.ReadOnly = true;
-            // 
-            // colProchaineMaintenance
-            // 
-            this.colProchaineMaintenance.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.Format = "N0";
-            dataGridViewCellStyle5.NullValue = null;
-            this.colProchaineMaintenance.DefaultCellStyle = dataGridViewCellStyle5;
-            this.colProchaineMaintenance.HeaderText = "Prochaine Maintenance dans (km):";
-            this.colProchaineMaintenance.MinimumWidth = 12;
-            this.colProchaineMaintenance.Name = "colProchaineMaintenance";
-            this.colProchaineMaintenance.ReadOnly = true;
-            this.colProchaineMaintenance.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(937, 619);
+            this.ClientSize = new System.Drawing.Size(937, 615);
             this.Controls.Add(this.gbVehicule);
             this.Controls.Add(this.tcMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
