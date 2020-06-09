@@ -52,6 +52,7 @@ namespace MotoCare
         public Image ByteArrayToImage(byte[] imageBytes)
         {
             MemoryStream ms = new MemoryStream(imageBytes);
+            //Crée l'image à partir de la donnée fournie
             Image returnImage = Image.FromStream(ms);
             return returnImage;
         }

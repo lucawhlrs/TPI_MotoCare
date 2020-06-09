@@ -105,74 +105,74 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BD.cs" />
-    <Compile Include="Entretien.cs" />
-    <Compile Include="frmAjoutEntretien.cs">
+    <Compile Include="Modele\BD.cs" />
+    <Compile Include="Modele\Entretien.cs" />
+    <Compile Include="Vue\frmAjoutEntretien.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAjoutEntretien.Designer.cs">
+    <Compile Include="Vue\frmAjoutEntretien.Designer.cs">
       <DependentUpon>frmAjoutEntretien.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmAjoutTrajet.cs">
+    <Compile Include="Vue\frmAjoutTrajet.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAjoutTrajet.Designer.cs">
+    <Compile Include="Vue\frmAjoutTrajet.Designer.cs">
       <DependentUpon>frmAjoutTrajet.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmAjoutVehicule.cs">
+    <Compile Include="Vue\frmAjoutVehicule.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAjoutVehicule.Designer.cs">
+    <Compile Include="Vue\frmAjoutVehicule.Designer.cs">
       <DependentUpon>frmAjoutVehicule.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmMain.cs">
+    <Compile Include="Vue\frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmMain.Designer.cs">
+    <Compile Include="Vue\frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmModifierEntretien.cs">
+    <Compile Include="Vue\frmModifierEntretien.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmModifierEntretien.Designer.cs">
+    <Compile Include="Vue\frmModifierEntretien.Designer.cs">
       <DependentUpon>frmModifierEntretien.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmModifierTrajet.cs">
+    <Compile Include="Vue\frmModifierTrajet.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmModifierTrajet.Designer.cs">
+    <Compile Include="Vue\frmModifierTrajet.Designer.cs">
       <DependentUpon>frmModifierTrajet.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmModifierVehicule.cs">
+    <Compile Include="Vue\frmModifierVehicule.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmModifierVehicule.Designer.cs">
+    <Compile Include="Vue\frmModifierVehicule.Designer.cs">
       <DependentUpon>frmModifierVehicule.cs</DependentUpon>
     </Compile>
-    <Compile Include="PointInteret.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Modele\PointInteret.cs" />
+    <Compile Include="Modele\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Trajet.cs" />
-    <Compile Include="Vehicule.cs" />
-    <EmbeddedResource Include="frmAjoutEntretien.resx">
+    <Compile Include="Modele\Trajet.cs" />
+    <Compile Include="Modele\Vehicule.cs" />
+    <EmbeddedResource Include="Vue\frmAjoutEntretien.resx">
       <DependentUpon>frmAjoutEntretien.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmAjoutTrajet.resx">
+    <EmbeddedResource Include="Vue\frmAjoutTrajet.resx">
       <DependentUpon>frmAjoutTrajet.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmAjoutVehicule.resx">
+    <EmbeddedResource Include="Vue\frmAjoutVehicule.resx">
       <DependentUpon>frmAjoutVehicule.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmMain.resx">
+    <EmbeddedResource Include="Vue\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmModifierEntretien.resx">
+    <EmbeddedResource Include="Vue\frmModifierEntretien.resx">
       <DependentUpon>frmModifierEntretien.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmModifierTrajet.resx">
+    <EmbeddedResource Include="Vue\frmModifierTrajet.resx">
       <DependentUpon>frmModifierTrajet.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmModifierVehicule.resx">
+    <EmbeddedResource Include="Vue\frmModifierVehicule.resx">
       <DependentUpon>frmModifierVehicule.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -211,6 +211,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

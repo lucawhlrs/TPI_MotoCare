@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.30104.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MotoCare", "MotoCare\MotoCare.csproj", "{6024222D-DBA5-423A-8347-C98528977A71}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MotoCareTests", "MotoCareTests\MotoCareTests.csproj", "{ED43090E-FE38-4AF2-8A8E-93E455BDE96F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{6024222D-DBA5-423A-8347-C98528977A71}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6024222D-DBA5-423A-8347-C98528977A71}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6024222D-DBA5-423A-8347-C98528977A71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED43090E-FE38-4AF2-8A8E-93E455BDE96F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED43090E-FE38-4AF2-8A8E-93E455BDE96F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED43090E-FE38-4AF2-8A8E-93E455BDE96F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED43090E-FE38-4AF2-8A8E-93E455BDE96F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
